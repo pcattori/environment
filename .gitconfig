@@ -1,0 +1,16 @@
+[user]
+	email = pcattori@mit.edu
+	name = Pedro Cattori
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	grep = auto
+[alias]
+	co = checkout
+	st = status -sb
+	ci = commit
+	br = branch
+[core]
+	editor = vim
