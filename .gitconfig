@@ -12,5 +12,12 @@
 	st = status -sb
 	ci = commit
 	br = branch
+    unstage = reset HEAD
+    untrack = rm --cached
 [core]
 	editor = vim
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[push]
+	default = simple
