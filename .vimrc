@@ -1,12 +1,13 @@
 set title
 set number
-set ts=4 sts=4 sw=4 expandtab
+set ts=2 sts=2 sw=2 expandtab
 syntax on
 colorscheme molokai
 set wildmenu
 set scrolloff=5
 set cursorline
 set hlsearch
+set list
 
 map <space> \
 
@@ -69,9 +70,9 @@ if has("autocmd")
     "autocmd BufNewFile,BufRead *.rss setfiletype xml
 endif
 
-command! -nargs=* Stws call StripTrailingWhitespaces()
+"command! -nargs=* Stws call StripTrailingWhitespaces()
 function! StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
+    " Save last search, and cursor position.
     let _s=@/
     let l = line(".")
     let c = col(".")
@@ -81,4 +82,4 @@ function! StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-
+autocmd BufWritePre * call StripTrailingWhitespaces()
