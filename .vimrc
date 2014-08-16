@@ -21,6 +21,9 @@ Plugin 'gmarik/Vundle.vim'
 " Better status line
 Plugin 'bling/vim-airline'
 
+" Slim syntax
+Plugin 'slim-template/vim-slim'
+
 " Character representation in decimal, octal, and hex with 'ga'
 Plugin 'tpope/vim-characterize'
 
@@ -85,6 +88,8 @@ set scrolloff=5
 set cursorline
 " Show cursor column
 set cursorcolumn
+" Highlight current line number
+highlight CursorLineNr term=bold ctermfg=Yellow
 " Don't hide mouse while typing
 "set nomousehide " doesn't seem to work...
 " }}}
@@ -133,7 +138,7 @@ function! SummarizeTabs()
     endtry
 endfunction
 
-" Syntax of these languages is fussy over tabs Vs spaces
+" Syntax of these languages is fussy over tabs & spaces
 autocmd! FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 autocmd! FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
