@@ -34,20 +34,22 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 
 " TODO(pcattori): Try out these plugins...
+" unite
 " supertab
 " showmarks
 " searchcomplete
 " youcompleteme
 " * ultisnips
-" nerd commenter
+" nerd commenter OR tcomment?
 " nerd tree
 " * syntastic
 " ctrl-p
 " matchit
 " gundo
-" abolish
+" * abolish
 " command-t
 " * tasklist
+" * repeat
 
 " Required Vundle teardown
 call vundle#end()
@@ -61,6 +63,8 @@ filetype plugin indent on
 
 " Reload changes to .vimrc automatically | Fix Airline redraw whenever .vimrc is sourced
 autocmd! BufWritePost ~/.vimrc source % | AirlineRefresh
+
+" TODO(pcattori): Autoinstall plugins??
 
 " {{{ Terminal font encoding
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
