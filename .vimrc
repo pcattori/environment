@@ -1,11 +1,12 @@
 " .vimrc - Developed on OSX Mavericks - may have issues with non-OSX machines
 
-" -------------------
-" | .vimrc - Vundle |
-" -------------------
+" ----------------------------------------------------------
+" | .vimrc - Vundle @ https://github.com/gmarik/Vundle.vim |
+" ----------------------------------------------------------
 
 " {{{ Vundle
 " vim = VI iMproved
+set nocompatible
 
 " Required Vundle setup
 filetype off
@@ -34,15 +35,16 @@ Plugin 'tpope/vim-surround'
 " showmarks
 " searchcomplete
 " youcompleteme
-" ultisnips
+" * ultisnips
 " nerd commenter
 " nerd tree
-" syntastic
+" * syntastic
 " ctrl-p
 " matchit
 " gundo
 " abolish
 " command-t
+" * tasklist
 
 " Required Vundle teardown
 call vundle#end()
@@ -152,10 +154,14 @@ set incsearch
 
 " Highlight search
 set hlsearch
-" Clear highlight
-" TODO(pcattori): Favor <c-[> over <esc>? Make custom <esc> mapping?
-nnoremap <esc> :noh<return><esc>
-nnoremap <c-[> :noh<return><c-[>
+" Clear search and dismiss highlights
+nnoremap <silent> <backspace> :let @/ = ""<return>
+"nnoremap <silent> <backspace> :noh<return> " alternate dismiss highlights
+
+" These 2 below were causing vim to start in normal mode but switch to inser
+" mode on first keystroke... ??
+"nnoremap <silent> <esc> :noh<return><esc>
+"nnoremap <silent> <c-[> :noh<return><c-[>
 " }}}
 
 " {{{ Auto-completion
@@ -210,7 +216,7 @@ noremap $       <nop>
 " {{{ Syntax enforcement
 highlight ErrorMsg ctermfg=White ctermbg=Red
 
-" Show trailing whitespace:
+" Show trailing whitespace
 "autocmd! InsertLeave * match ErrorMsg /\s\+$/
 
 " Automatically strip trailing whitespace when exiting insert mode
@@ -227,6 +233,7 @@ function! StripTrailingWhitespace()
 endfunction
 autocmd! InsertLeave * call StripTrailingWhitespace()
 
+" Column-color warnings when exceeding max column-lengths
 function! WarnPastCol(col)
     echom 'warn past!'
     " Regex of the form '/\%>#v.\+/' where # is the column number
@@ -261,5 +268,5 @@ set laststatus=2
 " Color theme
 let g:airline_theme = 'molokai'
 " Beautify with custom font symbols
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1 " must be using powerline font
 " }}}
