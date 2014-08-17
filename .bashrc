@@ -49,13 +49,11 @@ git_branch() {
 # Prompt
 export PS1="$CYAN\u$BLACK :: $BLUE\W$LIGHT_PURPLE\$(git_branch)$RED ∴ $LIGHT_GREY"
 
+# PATH = /usr/bin:/bin:/usr/sbin:/sbin
+# Homebrew: /usr/local/bin as primary (and include corresponding sbin)
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# TODO(pcattori): Not sure if GOROOT and PATH need to be set due to homebrew
 # Go
 #export GOROOT=$HOME/go
 #export PATH=$PATH:$GOROOT/bin
-
-# Ruby ... ?
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# Heroku ... ?
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"

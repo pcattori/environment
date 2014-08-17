@@ -261,7 +261,7 @@ endfunction
 autocmd! FileType java    :call WarnPastCol(100)
 autocmd! FileType proto   :call WarnPastCol(80)
 autocmd! FileType python  :call WarnPastCol(60)
-autocmd! Filetype sh      :call WarnPastCol(80)
+autocmd! Filetype sh      :call WarnPastCol(100)
 autocmd! Filetype vim     :call WarnPastCol(80)
 " }}}
 
