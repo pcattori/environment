@@ -34,6 +34,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 
 " TODO(pcattori): Try out these plugins...
+" multiple-cursors
 " unite
 " supertab
 " showmarks
@@ -208,6 +209,9 @@ noremap J <c-f>
 noremap K <c-b>
 noremap L $
 
+" Tab-match
+nnoremap <tab> %
+
 " Disable bad habits
 noremap <left>  <nop>
 noremap <down>  <nop>
@@ -219,6 +223,8 @@ noremap ^       <nop>
 noremap <c-f>   <nop>
 noremap <c-b>   <nop>
 noremap $       <nop>
+
+nnoremap %      <nop>
 
 " }}}
 
