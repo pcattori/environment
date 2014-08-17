@@ -237,6 +237,7 @@ highlight ErrorMsg ctermfg=White ctermbg=Red
 
 " Automatically strip trailing whitespace when exiting insert mode
 function! StripTrailingWhitespace()
+    " TODO(pcattori): Move this logic outside of this function
     " Don't strip on these filetypes
     if &ft =~ 'markdown'
         return
