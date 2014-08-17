@@ -1,5 +1,4 @@
 #dotfiles
-## Intro
 All of my relevant dotfiles for environment customization:
 
 [.bashrc](https://github.com/pcattori/dotfiles/blob/master/.bashrc)  
