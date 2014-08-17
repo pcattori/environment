@@ -62,7 +62,7 @@ filetype plugin indent on
 " | .vimrc - Vimscript |
 " ----------------------
 
-" Reload changes to .vimrc automatically | Fix Airline redraw whenever .vimrc is sourced
+" Reload changes to .vimrc automatically | Fix Airline when .vimrc is sourced
 autocmd! BufWritePost ~/.vimrc source % | AirlineRefresh
 
 " TODO(pcattori): Autoinstall plugins??
@@ -148,6 +148,8 @@ autocmd! FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 autocmd! FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Customisations based on house-style (arbitrary)
+autocmd! Filetype vim setlocal ts=4 sts=4 sw=4 expandtab
+autocmd! Filetype sh setlocal ts=4 sts=4 sw=4 expandtab
 "autocmd! FileType html setlocal ts=2 sts=2 sw=2 expandtab
 "autocmd! FileType css setlocal ts=2 sts=2 sw=2 expandtab
 "autocmd! FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
@@ -225,7 +227,6 @@ noremap <c-b>   <nop>
 noremap $       <nop>
 
 nnoremap %      <nop>
-
 " }}}
 
 " {{{ Syntax enforcement
@@ -257,9 +258,11 @@ function! WarnPastCol(col)
 endfunction
 
 " Filetype-dependent column-length warnings
-autocmd! FileType java   :call WarnPastCol(100)
-autocmd! FileType proto  :call WarnPastCol(80)
-autocmd! FileType python :call WarnPastCol(60)
+autocmd! FileType java    :call WarnPastCol(100)
+autocmd! FileType proto   :call WarnPastCol(80)
+autocmd! FileType python  :call WarnPastCol(60)
+autocmd! Filetype sh      :call WarnPastCol(80)
+autocmd! Filetype vim     :call WarnPastCol(80)
 " }}}
 
 " {{{ Recommended mappings (Learn Vimscript the Hard Way)

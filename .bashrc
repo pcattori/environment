@@ -1,7 +1,7 @@
 # Colored ls
 alias ls='ls -G'
 
-# Jump command module: http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+# Jump command module
 export MARKPATH=$HOME/.marks
 function jump {
   cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
@@ -13,7 +13,6 @@ function unmark {
   rm -i "$MARKPATH/$1"
 }
 function marks {
-  #\ls -ln "$MARKPATH" | tail -n +2 | sed 's/ /  /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n\n", $1, $2}'
   (t="$(printf "\t")"; cd "$MARKPATH" && stat -f"%N$t%SY" * | column -ts"$t")
 }
 _completemarks() {
@@ -49,9 +48,6 @@ git_branch() {
 
 # Prompt
 export PS1="$CYAN\u$BLACK :: $BLUE\W$LIGHT_PURPLE\$(git_branch)$RED ∴ $LIGHT_GREY"
-
-# Controlled environment for "Practical Vim" book & exercises
-alias evim='vim -u ~/Desktop/Projects/Learning/vim/practical_vim_examples/code/essential.vim'
 
 # Go
 #export GOROOT=$HOME/go
