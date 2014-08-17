@@ -237,6 +237,10 @@ highlight ErrorMsg ctermfg=White ctermbg=Red
 
 " Automatically strip trailing whitespace when exiting insert mode
 function! StripTrailingWhitespace()
+    " Don't strip on these filetypes
+    if &ft =~ 'markdown'
+        return
+    endif
     " Save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -258,11 +262,11 @@ function! WarnPastCol(col)
 endfunction
 
 " Filetype-dependent column-length warnings
-autocmd! FileType java    :call WarnPastCol(100)
-autocmd! FileType proto   :call WarnPastCol(80)
-autocmd! FileType python  :call WarnPastCol(60)
-autocmd! Filetype sh      :call WarnPastCol(100)
-autocmd! Filetype vim     :call WarnPastCol(80)
+autocmd! FileType java    call WarnPastCol(100)
+autocmd! FileType proto   call WarnPastCol(80)
+autocmd! FileType python  call WarnPastCol(60)
+autocmd! Filetype sh      call WarnPastCol(100)
+autocmd! Filetype vim     call WarnPastCol(80)
 " }}}
 
 " {{{ Recommended mappings (Learn Vimscript the Hard Way)
