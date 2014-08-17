@@ -1,8 +1,16 @@
+# {{{ ls
 # Colored ls
 alias ls='ls -G'
+alias la='ls -Ga'
+alias ll='ls -Gl'
+alias lla='ls -Gal'
+# }}}
 
-# Jump command module
+# {{{ Jump command module
+# Set ~/.marks as metadata dir
 export MARKPATH=$HOME/.marks
+
+# Commands
 function jump {
   cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
@@ -15,6 +23,8 @@ function unmark {
 function marks {
   (t="$(printf "\t")"; cd "$MARKPATH" && stat -f"%N$t%SY" * | column -ts"$t")
 }
+
+# Auto-completion for 'jump' and 'unmark' based on ~/.marks contents
 _completemarks() {
   local cur=${COMP_WORDS[COMP_CWORD]}
   local marks=$(find $MARKPATH -type l | awk -F '/' '{print $NF}')
@@ -22,7 +32,9 @@ _completemarks() {
   return 0
 }
 complete -o default -o nospace -F _completemarks jump unmark
+# }}}
 
+# {{{ Prompt
 # Color definitions for prompt
 BLACK='\[\e[0;30m\]'
 RED='\[\e[0;31m\]'
@@ -46,9 +58,11 @@ git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-# Prompt
+# Prompt declaration
 export PS1="$CYAN\u$BLACK :: $BLUE\W$LIGHT_PURPLE\$(git_branch)$RED ∴ $LIGHT_GREY"
+# }}}
 
+# {{{ PATH
 # PATH = /usr/bin:/bin:/usr/sbin:/sbin
 # Homebrew: /usr/local/bin as primary (and include corresponding sbin)
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
@@ -57,3 +71,4 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # Go
 #export GOROOT=$HOME/go
 #export PATH=$PATH:$GOROOT/bin
+# }}}
