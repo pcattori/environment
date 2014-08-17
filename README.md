@@ -8,3 +8,6 @@ All of my relevant dotfiles for environment customization:
 
 ## Tips
 To avoid version-controlling everything in my `$HOME` directory, I have my dotfiles hard-linked in a `dotfiles` git-repo directory.
+
+## Thanks to...
+[//]: # (This may be the most platform independent comment)
