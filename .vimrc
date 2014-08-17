@@ -280,6 +280,10 @@ inoremap <c-u> <esc>viwU<esc>ea
 " No comment nextline-continuation
 "autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
+" ---------------------------------
+" | .vimrc - Plugin customization |
+" ---------------------------------
+
 " {{{ Airline
 " Always show status bar
 set laststatus=2
