@@ -11,3 +11,4 @@ To avoid version-controlling everything in my `$HOME` directory, I have my dotfi
 
 ## Thanks to...
 [//]: # (TODO:pcattori: list resources used to make these dotfiles here)
+{Under construction: Will be adding resources I used for my dotfiles here}
