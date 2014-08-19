@@ -21,6 +21,9 @@ Plugin 'gmarik/Vundle.vim'
 " Better status line
 Plugin 'bling/vim-airline'
 
+" Syntax checking
+"Plugin 'scrooloose/syntastic'
+
 " Slim syntax
 Plugin 'slim-template/vim-slim'
 
@@ -43,7 +46,6 @@ Plugin 'tpope/vim-surround'
 " * ultisnips
 " nerd commenter OR tcomment?
 " nerd tree
-" * syntastic
 " ctrl-p
 " matchit
 " gundo
@@ -62,8 +64,10 @@ filetype plugin indent on
 " | .vimrc - Vimscript |
 " ----------------------
 
-" Reload changes to .vimrc automatically | Fix Airline when .vimrc is sourced
-autocmd! BufWritePost ~/.vimrc source % | AirlineRefresh
+" Reload changes to .vimrc automatically
+" Trigger FileType event to override global defaults with filetype-specific settings
+" Fix Airline graphic bug by redrawing the status bar
+autocmd! BufWritePost ~/.vimrc source ~/.vimrc | setlocal filetype=vim | AirlineRefresh
 
 " TODO(pcattori): Autoinstall plugins??
 
@@ -94,9 +98,9 @@ set cursorline
 " Show cursor column
 set cursorcolumn
 " Highlight current line number
-highlight CursorLineNr term=bold ctermfg=Yellow
+"highlight CursorLineNr term=bold ctermfg=Yellow " TODO(pcattori): doesn't seem to work...
 " Don't hide mouse while typing
-"set nomousehide " doesn't seem to work...
+"set nomousehide " TODO(pcattori): doesn't seem to work...
 " }}}
 
 " {{{ Tab
@@ -143,16 +147,19 @@ function! SummarizeTabs()
     endtry
 endfunction
 
-" Syntax of these languages is fussy over tabs & spaces
-autocmd! FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-autocmd! FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+augroup Tab
+  autocmd!
+  " Syntax of these languages is fussy over tabs & spaces
+  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-" Customisations based on house-style (arbitrary)
-autocmd! Filetype vim setlocal ts=4 sts=4 sw=4 expandtab
-autocmd! Filetype sh setlocal ts=4 sts=4 sw=4 expandtab
-"autocmd! FileType html setlocal ts=2 sts=2 sw=2 expandtab
-"autocmd! FileType css setlocal ts=2 sts=2 sw=2 expandtab
-"autocmd! FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+  " Customisations based on house-style (arbitrary)
+  autocmd FileType sh setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType vim setlocal ts=4 sts=4 sw=4 expandtab
+  "autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  "autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  "autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+augroup END
 " }}}
 
 " {{{ Search
@@ -168,12 +175,6 @@ set incsearch
 set hlsearch
 " Clear search and dismiss highlights
 nnoremap <silent> <backspace> :let @/ = ""<return>
-"nnoremap <silent> <backspace> :noh<return> " alternate dismiss highlights
-
-" These 2 below were causing vim to start in normal mode but switch to inser
-" mode on first keystroke... ??
-"nnoremap <silent> <esc> :noh<return><esc>
-"nnoremap <silent> <c-[> :noh<return><c-[>
 " }}}
 
 " {{{ Auto-completion
@@ -191,6 +192,7 @@ inoremap <c-n> <nop>
 set list
 
 " Use the same symbols as TextMate for tabstops and EOLs
+" TODO(pcattori) trail? other special chars?
 set listchars=tab:▸\ ,eol:¬
 
 " Invisible character colors
@@ -199,7 +201,7 @@ highlight SpecialKey ctermfg=237 ctermbg=None
 " }}}
 
 " {{{ Map leaders
-" TODO(pcattori): Should <leader> be used as prefix for all maps?
+" TODO(pcattori): Put these to use.
 let mapleader=","
 let maplocalleader="//"
 " }}}
@@ -233,15 +235,25 @@ nnoremap %      <nop>
 highlight ErrorMsg ctermfg=White ctermbg=Red
 
 " Show trailing whitespace
-"autocmd! InsertLeave * match ErrorMsg /\s\+$/
+"autocmd InsertLeave * match ErrorMsg /\s\+$/
+
+" By default, strip trailing whitespace
+let b:PreserveTrailingWhitespace=0
+" Don't strip on these filetypes
+augroup PreserveTrailingWhitespace
+    autocmd!
+    autocmd FileType markdown let b:PreserveTrailingWhitespace=1
+augroup END
+
+" Strip trailing whitespace unless explicitly set otherwise
+function! HandleTrailingWhitespace()
+    if b:PreserveTrailingWhitespace == 0
+        call StripTrailingWhitespace()
+    endif
+endfunction
 
 " Automatically strip trailing whitespace when exiting insert mode
 function! StripTrailingWhitespace()
-    " TODO(pcattori): Move this logic outside of this function
-    " Don't strip on these filetypes
-    if &ft =~ 'markdown'
-        return
-    endif
     " Save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -252,22 +264,26 @@ function! StripTrailingWhitespace()
     let @/=_s
     call cursor(l, c)
 endfunction
-autocmd! InsertLeave * call StripTrailingWhitespace()
+
+autocmd InsertLeave * call HandleTrailingWhitespace()
 
 " Column-color warnings when exceeding max column-lengths
 function! WarnPastCol(col)
-    echom 'warn past!'
     " Regex of the form '/\%>#v.\+/' where # is the column number
     let pastCol = '/\%>' . a:col . 'v.\+/'
+    " Highlight columns past max allowed with ErrorMsg colors
     exec 'match ErrorMsg ' .  pastCol
 endfunction
 
 " Filetype-dependent column-length warnings
-autocmd! FileType java    call WarnPastCol(100)
-autocmd! FileType proto   call WarnPastCol(80)
-autocmd! FileType python  call WarnPastCol(60)
-autocmd! Filetype sh      call WarnPastCol(100)
-autocmd! Filetype vim     call WarnPastCol(80)
+augroup WarnPastCol
+  autocmd!
+  autocmd FileType java    call WarnPastCol(100)
+  autocmd FileType proto   call WarnPastCol(80)
+  autocmd FileType python  call WarnPastCol(60)
+  autocmd FileType sh      call WarnPastCol(100)
+  autocmd FileType vim     call WarnPastCol(100)
+augroup END
 " }}}
 
 " {{{ Recommended mappings (Learn Vimscript the Hard Way)
