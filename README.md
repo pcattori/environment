@@ -6,7 +6,7 @@ All of my relevant dotfiles for environment customization:
 [.vimrc](https://github.com/pcattori/dotfiles/blob/master/.vimrc)  
 [.gitconfig](https://github.com/pcattori/dotfiles/blob/master/.gitconfig)  
 
-## Tips
+## Tips to my past self
 To avoid version-controlling everything in my `$HOME` directory, I have my dotfiles hard-linked in a `dotfiles` git-repo directory.
 
 ## Resources I used
