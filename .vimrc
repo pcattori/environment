@@ -99,8 +99,6 @@ set cursorline
 set cursorcolumn
 " Highlight current line number
 "highlight CursorLineNr term=bold ctermfg=Yellow " TODO(pcattori): doesn't seem to work...
-" Don't hide mouse while typing
-"set nomousehide " TODO(pcattori): doesn't seem to work...
 " }}}
 
 " {{{ Tab
@@ -265,7 +263,7 @@ function! StripTrailingWhitespace()
     call cursor(l, c)
 endfunction
 
-autocmd InsertLeave * call HandleTrailingWhitespace()
+autocmd! InsertLeave * call HandleTrailingWhitespace()
 
 " Column-color warnings when exceeding max column-lengths
 function! WarnPastCol(col)
