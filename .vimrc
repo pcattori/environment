@@ -18,20 +18,29 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins
 
+" Super-charged search, substitution, and abbreviations
+"Plugin 'tpope/vim-abolish'
+
 " Better status line
 Plugin 'bling/vim-airline'
 
 " Syntax checking
 "Plugin 'scrooloose/syntastic'
 
-" Slim syntax
-Plugin 'slim-template/vim-slim'
+" Ruby bundler goodies
+Plugin 'tpope/vim-bundler'
 
 " Character representation in decimal, octal, and hex with 'ga'
 Plugin 'tpope/vim-characterize'
 
 " Git integration (displays branch for Airline)
 Plugin 'tpope/vim-fugitive'
+
+" Haml, Sass, Scss syntax
+Plugin 'tpope/vim-haml'
+
+" Slim syntax
+Plugin 'slim-template/vim-slim'
 
 " Manipulate surrounding characters and tags
 Plugin 'tpope/vim-surround'
@@ -49,14 +58,13 @@ Plugin 'tpope/vim-surround'
 " ctrl-p
 " matchit
 " gundo
-" * abolish
 " command-t
 " * tasklist
 " * repeat
 
 " Required Vundle teardown
 call vundle#end()
-filetype plugin indent on
+filetype plugin on
 
 " }}}
 

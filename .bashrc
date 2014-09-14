@@ -1,12 +1,22 @@
 # {{{ ls
 # Colored ls
 alias ls='ls -G'
-alias la='ls -Ga'
-alias ll='ls -Gl'
-alias lla='ls -Gal'
+alias ll='ls -Gla'
 # }}}
 
+alias home='cd ~'
+alias up='cd ..'
+alias hist='history'
+
+alias src='source ~/.bashrc'
+
+# Don't store commands prepended with ' ' (space) in history
+export HISTCONTROL=ignorespace
+
+alias athena='ssh pcattori@athena.dialup.mit.edu'
+
 # {{{ Jump command module
+# TODO(pcattori): jump to subdir of mark
 # Set ~/.marks as metadata dir
 export MARKPATH=$HOME/.marks
 
@@ -63,7 +73,6 @@ export PS1="$CYAN\u$BLACK :: $BLUE\W$LIGHT_PURPLE\$(git_branch)$RED ∴ $LIGHT_G
 # }}}
 
 # {{{ PATH
-# PATH = /usr/bin:/bin:/usr/sbin:/sbin
 # Homebrew: /usr/local/bin as primary (and include corresponding sbin)
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
