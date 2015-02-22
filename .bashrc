@@ -1,19 +1,23 @@
 # {{{ ls
 # Colored ls
 alias ls='ls -G'
-alias ll='ls -Gla'
+alias ll='ls -Ghla'
 # }}}
 
 alias home='cd ~'
 alias up='cd ..'
-alias hist='history'
+alias make='make -s'
+alias grep='grep --color=auto'
 
-alias src='source ~/.bashrc'
 
 # Don't store commands prepended with ' ' (space) in history
 export HISTCONTROL=ignorespace
 
-alias athena='ssh pcattori@athena.dialup.mit.edu'
+alias athena='ssh athena.dialup.mit.edu -l pcattori'
+
+chrome () {
+  open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome "$1"
+}
 
 # {{{ Jump command module
 # TODO(pcattori): jump to subdir of mark
@@ -69,7 +73,7 @@ git_branch() {
 }
 
 # Prompt declaration
-export PS1="$CYAN\u$BLACK :: $BLUE\W$LIGHT_PURPLE\$(git_branch)$RED ∴ $LIGHT_GREY"
+export PS1="$CYAN\u$BLACK : $BLUE\W$LIGHT_PURPLE\$(git_branch)$RED ∴ $LIGHT_GREY"
 # }}}
 
 # {{{ PATH

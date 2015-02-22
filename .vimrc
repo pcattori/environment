@@ -39,6 +39,9 @@ Plugin 'tpope/vim-fugitive'
 " Haml, Sass, Scss syntax
 Plugin 'tpope/vim-haml'
 
+" Markdown syntax
+Plugin 'tpope/vim-markdown'
+
 " Slim syntax
 Plugin 'slim-template/vim-slim'
 
@@ -284,9 +287,9 @@ endfunction
 " Filetype-dependent column-length warnings
 augroup WarnPastCol
   autocmd!
-  autocmd FileType java    call WarnPastCol(100)
+  "autocmd FileType java    call WarnPastCol(100)
   autocmd FileType proto   call WarnPastCol(80)
-  autocmd FileType python  call WarnPastCol(60)
+  "autocmd FileType python  call WarnPastCol(60)
   autocmd FileType sh      call WarnPastCol(100)
   autocmd FileType vim     call WarnPastCol(100)
 augroup END
@@ -303,6 +306,9 @@ inoremap <c-d> <esc>ddi
 nnoremap <c-u> viwU<esc>e
 inoremap <c-u> <esc>viwU<esc>ea
 " }}}
+
+" Underscore
+" TODO(pcattori): inoremap <something> _
 
 " No comment nextline-continuation
 "autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
