@@ -35,7 +35,7 @@ function unmark {
   rm -i "$MARKPATH/$1"
 }
 function marks {
-  mkdir -p "$MARKPATH"; stat -f"%N	%SY" "$MARKPATH"/* 2>/dev/null | grep -o '([^/]+)	.*' | column -ts"	"
+  mkdir -p "$MARKPATH"; ls -l "$MARKPATH" | tail -n +2 | tr -s ' ' | cut -d' ' -f9- | column -ts' '
 }
 
 # Auto-completion for 'jump' and 'unmark' based on ~/.marks contents
