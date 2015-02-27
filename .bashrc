@@ -34,7 +34,7 @@ function unmark {
   rm -i "$MARKPATH/$1"
 }
 function marks {
-  (t="$(printf "\t")"; cd "$MARKPATH" && stat -f"%N$t%SY" * | column -ts"$t")
+  cd "$MARKPATH" && stat -f"%N	%SY" * | column -ts"	"
 }
 
 # Auto-completion for 'jump' and 'unmark' based on ~/.marks contents
@@ -68,7 +68,7 @@ WHITE='\[\e[1;37m\]'
 
 # git branch information for prompt
 git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/.* (.*)/ \(\1\)/'
 }
 
 # Prompt declaration

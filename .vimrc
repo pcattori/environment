@@ -290,7 +290,7 @@ augroup WarnPastCol
   "autocmd FileType java    call WarnPastCol(100)
   autocmd FileType proto   call WarnPastCol(80)
   "autocmd FileType python  call WarnPastCol(60)
-  autocmd FileType sh      call WarnPastCol(100)
+  "autocmd FileType sh      call WarnPastCol(100)
   autocmd FileType vim     call WarnPastCol(100)
 augroup END
 " }}}
