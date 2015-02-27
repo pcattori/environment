@@ -6,10 +6,11 @@ alias ll='ls -Ghla'
 
 alias home='cd ~'
 alias up='cd ..'
-alias make='make -s'
+#alias make='make -s'
 
 alias chrome='open -a "Google Chrome"'
 
+# -E for extended regex
 alias sed='sed -E'
 export GREP_OPTIONS='-E --color=auto'
 
@@ -34,7 +35,7 @@ function unmark {
   rm -i "$MARKPATH/$1"
 }
 function marks {
-  cd "$MARKPATH" && stat -f"%N	%SY" * | column -ts"	"
+  mkdir -p "$MARKPATH"; stat -f"%N	%SY" "$MARKPATH"/* 2>/dev/null | grep -o '([^/]+)	.*' | column -ts"	"
 }
 
 # Auto-completion for 'jump' and 'unmark' based on ~/.marks contents
