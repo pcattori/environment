@@ -68,6 +68,8 @@ WHITE='\[\e[1;37m\]'
 
 # git branch information for prompt
 git_branch() {
+    # if using sed without -E, use commented version
+    # git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/.* (.*)/ \(\1\)/'
 }
 
