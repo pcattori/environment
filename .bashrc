@@ -7,17 +7,16 @@ alias ll='ls -Ghla'
 alias home='cd ~'
 alias up='cd ..'
 alias make='make -s'
-alias grep='grep --color=auto'
 
+alias chrome='open -a "Google Chrome"'
+
+alias sed='sed -E'
+export GREP_OPTIONS='-E --color=auto'
 
 # Don't store commands prepended with ' ' (space) in history
 export HISTCONTROL=ignorespace
 
 alias athena='ssh athena.dialup.mit.edu -l pcattori'
-
-chrome () {
-  open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome "$1"
-}
 
 # {{{ Jump command module
 # TODO(pcattori): jump to subdir of mark
