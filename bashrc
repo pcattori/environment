@@ -1,28 +1,47 @@
-# {{{ ls
+#!/usr/local/bin/bash
+
+############################
+# aliases & export options #
+############################
+
 # Colored ls
 alias ls='ls -G'
 alias ll='ls -Ghla'
-# }}}
 
 alias home='cd ~'
 alias up='cd ..'
-#alias make='make -s'
-
-alias chrome='open -a "Google Chrome"'
 
 # -E for extended regex
 alias sed='sed -E'
-export GREP_OPTIONS='-E --color=auto'
+alias athena='ssh athena.dialup.mit.edu -l pcattori'
 
+export GREP_OPTIONS='-E --color=auto'
 # Don't store commands prepended with ' ' (space) in history
 export HISTCONTROL=ignorespace
 
-alias athena='ssh athena.dialup.mit.edu -l pcattori'
+#########################
+# convenience functions #
+#########################
 
-# {{{ Jump command module
+# easy access to man pages for bash built-ins
+function manbash {
+   man -P "less +/\ \ \ $1" bash
+}
+
+# command-line chrome : try file, then try url
+function chrome {
+    if !( open -a "Google Chrome" $1 2> /dev/null ); then
+        open -a "Google Chrome" "http://$1"
+    fi
+}
+
+#######################
+# Jump command module #
+#######################
+
 # TODO(pcattori): jump to subdir of mark
 # Set ~/.marks as metadata dir
-export MARKPATH=$HOME/.marks
+MARKPATH=$HOME/.marks
 
 # Commands
 function jump {
@@ -46,10 +65,11 @@ _completemarks() {
   return 0
 }
 complete -o default -o nospace -F _completemarks jump unmark
-# }}}
 
-# {{{ Prompt
-# Color definitions for prompt
+##########
+# Prompt #
+##########
+
 BLACK='\[\e[0;30m\]'
 RED='\[\e[0;31m\]'
 GREEN='\[\e[0;32m\]'
@@ -76,14 +96,10 @@ git_branch() {
 
 # Prompt declaration
 export PS1="$CYAN\u$BLACK : $BLUE\W$LIGHT_PURPLE\$(git_branch)$RED ∴ $LIGHT_GREY"
-# }}}
 
-# {{{ PATH
+########
+# PATH #
+########
+
 # Homebrew: /usr/local/bin as primary (and include corresponding sbin)
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-
-# TODO(pcattori): Not sure if GOROOT and PATH need to be set due to homebrew
-# Go
-#export GOROOT=$HOME/go
-#export PATH=$PATH:$GOROOT/bin
-# }}}

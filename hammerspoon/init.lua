@@ -50,3 +50,9 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "right", function()
   f.h = max.h
   win:setFrame(f)
 end)
+
+--[[
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "s", function()
+  hs.caffeinate.systemSleep()
+end)
+]]
