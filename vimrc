@@ -1,4 +1,4 @@
-" .vimrc - Developed on OSX Mavericks - may have issues with non-OSX machines
+" .vimrc - Developed on OSX Yosemite (10.10) - may have issues with non-OSX machines
 
 " ----------------------------------------------------------
 " | .vimrc - Vundle @ https://github.com/gmarik/Vundle.vim |
@@ -163,8 +163,8 @@ augroup Tab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
   " Customisations based on house-style (arbitrary)
-  autocmd FileType sh setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType vim setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType vim setlocal ts=2 sts=2 sw=2 expandtab
   "autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   "autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   "autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
@@ -211,8 +211,8 @@ highlight SpecialKey ctermfg=237 ctermbg=None
 
 " {{{ Map leaders
 " TODO(pcattori): Put these to use.
-let mapleader=","
-let maplocalleader="//"
+"let mapleader=","
+"let maplocalleader="//"
 " }}}
 
 " {{{ Navigation mappings
@@ -288,10 +288,10 @@ endfunction
 augroup WarnPastCol
   autocmd!
   "autocmd FileType java    call WarnPastCol(100)
-  autocmd FileType proto   call WarnPastCol(80)
+  "autocmd FileType proto   call WarnPastCol(80)
   "autocmd FileType python  call WarnPastCol(60)
   "autocmd FileType sh      call WarnPastCol(100)
-  autocmd FileType vim     call WarnPastCol(100)
+  "autocmd FileType vim     call WarnPastCol(100)
 augroup END
 " }}}
 

@@ -11,11 +11,18 @@ alias ll='ls -Ghla'
 alias home='cd ~'
 alias up='cd ..'
 
-# -E for extended regex
-alias sed='sed -E'
 alias athena='ssh athena.dialup.mit.edu -l pcattori'
 
-export GREP_OPTIONS='-E --color=auto'
+export EDITOR='vim'
+
+# view man pages with vim
+export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -"
+
+# -E for extended regex
+#alias sed='sed -E'
+#export GREP_OPTIONS='-E --color=auto'
+export GREP_OPTIONS='--color=auto'
+
 # Don't store commands prepended with ' ' (space) in history
 export HISTCONTROL=ignorespace
 
@@ -23,48 +30,12 @@ export HISTCONTROL=ignorespace
 # convenience functions #
 #########################
 
-# easy access to man pages for bash built-ins
-function manbash {
-   man -P "less +/\ \ \ $1" bash
-}
-
 # command-line chrome : try file, then try url
 function chrome {
     if !( open -a "Google Chrome" $1 2> /dev/null ); then
         open -a "Google Chrome" "http://$1"
     fi
 }
-
-#######################
-# Jump command module #
-#######################
-
-# TODO(pcattori): jump to subdir of mark
-# Set ~/.marks as metadata dir
-MARKPATH=$HOME/.marks
-
-# Commands
-function jump {
-  cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
-}
-function mark {
-  mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
-}
-function unmark {
-  rm -i "$MARKPATH/$1"
-}
-function marks {
-  mkdir -p "$MARKPATH"; ls -l "$MARKPATH" | tail -n +2 | tr -s ' ' | cut -d' ' -f9- | column -ts' '
-}
-
-# Auto-completion for 'jump' and 'unmark' based on ~/.marks contents
-_completemarks() {
-  local cur=${COMP_WORDS[COMP_CWORD]}
-  local marks=$(find $MARKPATH -type l | awk -F '/' '{print $NF}')
-  COMPREPLY=($(compgen -W '${marks[@]}' -- "$cur"))
-  return 0
-}
-complete -o default -o nospace -F _completemarks jump unmark
 
 ##########
 # Prompt #
@@ -89,9 +60,7 @@ WHITE='\[\e[1;37m\]'
 
 # git branch information for prompt
 git_branch() {
-    # if using sed without -E, use commented version
-    # git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/.* (.*)/ \(\1\)/'
+    git branch 2> /dev/null | sed -E -e '/^[^*]/d' -e 's/.* (.*)/ \(\1\)/'
 }
 
 # Prompt declaration
