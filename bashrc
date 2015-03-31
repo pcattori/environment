@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 
 ############################
 # aliases & export options #
@@ -58,13 +58,9 @@ LIGHT_PURPLE='\[\e[1;35m\]'
 LIGHT_CYAN='\[\e[1;36m\]'
 WHITE='\[\e[1;37m\]'
 
-# git branch information for prompt
-git_branch() {
-    git branch 2> /dev/null | sed -E -e '/^[^*]/d' -e 's/.* (.*)/ \(\1\)/'
-}
-
 # Prompt declaration
-export PS1="$CYAN\u$BLACK : $BLUE\W$LIGHT_PURPLE\$(git_branch)$RED ∴ $LIGHT_GREY"
+# requires git-prompt.sh from git-completion brew formula
+export PS1="$CYAN\u$BLACK : $BLUE\W$LIGHT_PURPLE\$(__git_ps1)$RED ∴ $LIGHT_GREY"
 
 ########
 # PATH #

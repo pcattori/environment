@@ -1,5 +1,7 @@
+#!/bin/bash
+
 if [ -f ~/.bashrc ]; then
-   source ~/.bashrc
+   . ~/.bashrc
 fi
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
