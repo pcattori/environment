@@ -13,14 +13,14 @@ alias up='cd ..'
 
 alias athena='ssh athena.dialup.mit.edu -l pcattori'
 
+# -E for extended regex
+alias esed='sed -E'
+
 export EDITOR='vim'
 
 # view man pages with vim
 export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -"
 
-# -E for extended regex
-#alias sed='sed -E'
-#export GREP_OPTIONS='-E --color=auto'
 export GREP_OPTIONS='--color=auto'
 
 # Don't store commands prepended with ' ' (space) in history
@@ -59,8 +59,7 @@ LIGHT_CYAN='\[\e[1;36m\]'
 WHITE='\[\e[1;37m\]'
 
 # Prompt declaration
-# requires git-prompt.sh from git-completion brew formula
-export PS1="$CYAN\u$BLACK : $BLUE\W$LIGHT_PURPLE\$(__git_ps1)$RED ∴ $LIGHT_GREY"
+export PS1="${LIGHT_PURPLE}➜ ${LIGHT_GREY}"
 
 ########
 # PATH #
