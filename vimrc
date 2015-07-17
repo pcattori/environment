@@ -136,8 +136,8 @@ set cursorcolumn
 set listchars=tab:▸\ ,eol:¬
 
 " Invisible character colors
-highlight NonText ctermfg=237 ctermbg=None
-highlight SpecialKey ctermfg=237 ctermbg=None
+autocmd ColorScheme * highlight NonText ctermfg=237 ctermbg=None
+autocmd ColorScheme * highlight SpecialKey ctermfg=237 ctermbg=None
 
 
 " Show trailing whitespace
