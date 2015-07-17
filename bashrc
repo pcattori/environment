@@ -11,8 +11,6 @@ alias ll='ls -Ghla'
 alias home='cd ~'
 alias up='cd ..'
 
-alias athena='ssh athena.dialup.mit.edu -l pcattori'
-
 # -E for extended regex
 alias esed='sed -E'
 
@@ -59,7 +57,7 @@ LIGHT_CYAN='\[\e[1;36m\]'
 WHITE='\[\e[1;37m\]'
 
 # Prompt declaration
-export PS1="${LIGHT_PURPLE}➜ ${LIGHT_GREY}"
+export PS1="${LIGHT_RED}➜ ${LIGHT_GREY}"
 
 ########
 # PATH #
