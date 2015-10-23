@@ -36,6 +36,9 @@ Plugin 'tpope/vim-characterize'
 " Git integration (displays branch for Airline)
 Plugin 'tpope/vim-fugitive'
 
+" Golang syntax
+Plugin 'fatih/vim-go'
+
 " Haml, Sass, Scss syntax
 Plugin 'tpope/vim-haml'
 
@@ -47,6 +50,8 @@ Plugin 'slim-template/vim-slim'
 
 " Manipulate surrounding characters and tags
 Plugin 'tpope/vim-surround'
+
+Plugin 'lepture/vim-jinja'
 
 " Try out these plugins...
 " multiple-cursors

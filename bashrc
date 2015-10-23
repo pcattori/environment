@@ -63,5 +63,9 @@ export PS1="${LIGHT_RED}➜ ${LIGHT_GREY}"
 # PATH #
 ########
 
+export GOPATH=$HOME/go
+PATH=$PATH:$GOPATH/bin
+
 # Homebrew: /usr/local/bin as primary (and include corresponding sbin)
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH
