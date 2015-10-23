@@ -1,5 +1,8 @@
 # OSX
 .DS_Store
 
+# vim
+*.swp
+
 # python
 *.pyc
