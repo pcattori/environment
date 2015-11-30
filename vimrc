@@ -1,4 +1,4 @@
-" .vimrc - Developed on OSX Yosemite (10.10) - may have issues with non-OSX machines
+" .vimrc - Developed on OSX El Capitan (10.11)
 
 " -------------------------------------------------
 " | Vundle @ https://github.com/gmarik/Vundle.vim |
@@ -45,34 +45,40 @@ Plugin 'tpope/vim-haml'
 " Markdown syntax
 Plugin 'tpope/vim-markdown'
 
+" Repeat plugin actions via '.'
+Plugin 'tpope/vim-repeat'
+
 " Slim syntax
 Plugin 'slim-template/vim-slim'
 
 " Manipulate surrounding characters and tags
 Plugin 'tpope/vim-surround'
 
+" Jinja syntax
 Plugin 'lepture/vim-jinja'
 
 " Try out these plugins...
 " multiple-cursors
-" unite
 " supertab
 " showmarks
-" searchcomplete
 " youcompleteme
 " * ultisnips
 " nerd commenter OR tcomment?
-" nerd tree
 " ctrl-p
 " matchit
 " gundo
 " command-t
 " * tasklist
-" * repeat
 
 " Required Vundle teardown
 call vundle#end()
 filetype plugin on
+
+" Leader
+" ------
+
+let mapleader = " "
+nnoremap <space> <nop>
 
 
 " -------------------------------------
@@ -125,7 +131,8 @@ set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
 set title titlestring=%F\ %a%r%m
 
 " Number column
-set number "numberwidth=5
+set number
+autocmd ColorScheme * highlight LineNr ctermfg=grey ctermbg=235
 
 " Buffer cursor from top & bottom
 set scrolloff=5
@@ -137,17 +144,19 @@ set cursorline
 set cursorcolumn
 
 " Use the same symbols as TextMate for tabstops and EOLs
-" trail? other special chars?
 set listchars=tab:▸\ ,eol:¬
 
 " Invisible character colors
 autocmd ColorScheme * highlight NonText ctermfg=237 ctermbg=None
 autocmd ColorScheme * highlight SpecialKey ctermfg=237 ctermbg=None
 
-
 " Show trailing whitespace
-autocmd ColorScheme * highlight TrailingWhitespace ctermfg=White ctermbg=Grey
 autocmd BufWinEnter * match TrailingWhitespace /\s\+$/
+autocmd ColorScheme * highlight TrailingWhitespace ctermbg=White
+
+" Suggestive line stop
+set colorcolumn=80
+autocmd ColorScheme * highlight ColorColumn ctermbg=233
 
 
 " ---------------------------------
@@ -160,37 +169,30 @@ set background=dark
 let g:molokai_original=1
 colorscheme molokai " solarized, wombat, railscasts, codeschool
 
+" Folding
+set foldmethod=indent
+set nofoldenable
+
 
 " ------------
 " editing text
 " ------------
+
+" Quick underscore
+inoremap <c-@> _
 
 " Switch current line with below
 nnoremap - ddp
 " Switch current line with above
 nnoremap _ kddpk
 " Upper-case current word
+nnoremap <c-l> viwu<esc>e
+inoremap <c-l> <esc>viwu<esc>ea
 nnoremap <c-u> viwU<esc>e
 inoremap <c-u> <esc>viwU<esc>ea
 
-" Underscore
-" TODO(pcattori): inoremap <something> _
-
 " No comment nextline-continuation
-"autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
-
-function! StripTrailingWhitespace()
-    " Save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 " ------------------
 " tabs and indenting
@@ -202,55 +204,10 @@ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " Round to nearest tab multiple
 set shiftround
 
-" Set tabstop, softtabstop and shiftwidth to the same value
-" Set expandtab according to user input (y/n)
-command! -nargs=* SetTab call SetTab()
-function! SetTab()
-    let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-    let l:expandtab = input('(y/n) expandtab = ')
-    if l:tabstop > 0
-        let &l:sts = l:tabstop
-        let &l:ts = l:tabstop
-        let &l:sw = l:tabstop
-    endif
-    if l:expandtab ==# 'y'
-        set expandtab
-    elseif l:expandtab ==# 'n'
-        set noexpandtab
-    endif
-    call SummarizeTabs()
-endfunction
-
-" Display resulting tab settings
-command! -nargs=* GetTab call SummarizeTabs()
-function! SummarizeTabs()
-    try
-        echohl ModeMsg
-        echon 'tabstop='.&l:ts
-        echon ' shiftwidth='.&l:sw
-        echon ' softtabstop='.&l:sts
-        if &l:et
-            echon ' expandtab'
-        else
-            echon ' noexpandtab'
-        endif
-    finally
-        echohl None
-    endtry
-endfunction
-
 augroup Tab
   " Syntax of these languages is fussy over tabs & spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-  " Customisations based on house-style (arbitrary)
-  autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType vim setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType cs setlocal ts=2 sts=2 sw=2 noexpandtab
-  "autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  "autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-  "autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 augroup END
 
 
@@ -258,13 +215,12 @@ augroup END
 " mapping
 " -------
 
-" TODO generalize title generation
-" vimrc titles
-nnoremap T yypVr"llv$r-hr<space>o<esc>x
+" Persist visual selection after shift
+vnoremap < <gv
+vnoremap > >gv
 
-" Ctrl-<space> completion
-inoremap <c-@> <c-n>
-inoremap <c-n> <nop>
+" map sort function to a key
+vnoremap <Leader>s :sort<CR>
 
 
 " -------
@@ -273,9 +229,8 @@ inoremap <c-n> <nop>
 
 " Always show Airline status bar
 set laststatus=2
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 
 " Airline color theme
-let g:airline_theme = 'molokai'
-
-" Beautify Airline with custom font symbols
-let g:airline_powerline_fonts = 1 " must be using powerline font
+let g:airline_theme = 'wombat'
