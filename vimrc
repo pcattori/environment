@@ -20,7 +20,7 @@ Plugin 'gmarik/Vundle.vim'
 " -------
 
 " Super-charged search, substitution, and abbreviations
-"Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-abolish'
 
 " Better status line
 Plugin 'bling/vim-airline'
@@ -43,6 +43,9 @@ Plugin 'tpope/vim-repeat'
 " Code completion
 Plugin 'ervandew/supertab'
 
+" Comment manipulation
+Plugin 'tomtom/tcomment_vim'
+
 " Manipulate surrounding characters and tags
 Plugin 'tpope/vim-surround'
 
@@ -59,14 +62,7 @@ Plugin 'slim-template/vim-slim'
 Plugin 'tmhedberg/SimpylFold'
 
 " Try out these plugins...
-" showmarks
-" youcompleteme
-" nerd commenter OR tcomment?
-" ctrl-p
-" matchit
 " gundo
-" command-t
-" * tasklist
 
 " Required Vundle teardown
 call vundle#end()
