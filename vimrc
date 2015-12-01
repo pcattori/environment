@@ -36,33 +36,28 @@ Plugin 'tpope/vim-characterize'
 " Git integration (displays branch for Airline)
 Plugin 'tpope/vim-fugitive'
 
-" Golang syntax
-Plugin 'fatih/vim-go'
-
-" Haml, Sass, Scss syntax
-Plugin 'tpope/vim-haml'
-
-" Markdown syntax
-Plugin 'tpope/vim-markdown'
+" Sublime-like cursors
+Plugin 'terryma/vim-multiple-cursors'
 
 " Repeat plugin actions via '.'
 Plugin 'tpope/vim-repeat'
 
-" Slim syntax
-Plugin 'slim-template/vim-slim'
+" Code completion
+Plugin 'ervandew/supertab'
 
 " Manipulate surrounding characters and tags
 Plugin 'tpope/vim-surround'
 
-" Jinja syntax
+" Language syntax support
+Plugin 'fatih/vim-go'
+Plugin 'tpope/vim-haml'
 Plugin 'lepture/vim-jinja'
+Plugin 'tpope/vim-markdown'
+Plugin 'slim-template/vim-slim'
 
 " Try out these plugins...
-" multiple-cursors
-" supertab
 " showmarks
 " youcompleteme
-" * ultisnips
 " nerd commenter OR tcomment?
 " ctrl-p
 " matchit
@@ -114,10 +109,6 @@ noremap <left>  <nop>
 noremap <down>  <nop>
 noremap <up>    <nop>
 noremap <right> <nop>
-
-" Tab-match
-nnoremap <tab>  %
-nnoremap %      <nop>
 
 
 " ---------------
@@ -193,6 +184,9 @@ inoremap <c-u> <esc>viwU<esc>ea
 
 " No comment nextline-continuation
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+" Fix multiple cursor backspace
+set backspace=indent,eol,start
 
 " ------------------
 " tabs and indenting
