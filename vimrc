@@ -1,4 +1,5 @@
 " .vimrc - Developed on OSX El Capitan (10.11)
+" Requires vim >= 7.4
 
 " -------------------------------------------------
 " | Vundle @ https://github.com/gmarik/Vundle.vim |
@@ -24,9 +25,6 @@ Plugin 'gmarik/Vundle.vim'
 " Better status line
 Plugin 'bling/vim-airline'
 
-" Syntax checking
-"Plugin 'scrooloose/syntastic'
-
 " Ruby bundler goodies
 Plugin 'tpope/vim-bundler'
 
@@ -48,12 +46,17 @@ Plugin 'ervandew/supertab'
 " Manipulate surrounding characters and tags
 Plugin 'tpope/vim-surround'
 
+" Syntax checking
+"Plugin 'scrooloose/syntastic'
+
 " Language syntax support
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-haml'
 Plugin 'lepture/vim-jinja'
 Plugin 'tpope/vim-markdown'
 Plugin 'slim-template/vim-slim'
+
+Plugin 'tmhedberg/SimpylFold'
 
 " Try out these plugins...
 " showmarks
