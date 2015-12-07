@@ -175,11 +175,6 @@ inoremap <c-@> _
 nnoremap - ddp
 " Switch current line with above
 nnoremap _ kddpk
-" Upper-case current word
-nnoremap <c-l> viwu<esc>e
-inoremap <c-l> <esc>viwu<esc>ea
-nnoremap <c-u> viwU<esc>e
-inoremap <c-u> <esc>viwU<esc>ea
 
 " No comment nextline-continuation
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
@@ -208,12 +203,25 @@ augroup END
 " mapping
 " -------
 
+" easier escape
+inoremap ;; <esc>
+vnoremap ;; <esc>
+
+" make 'Y' behave like other capitals
+nnoremap Y y$
+
+" toggle invisibles
+nnoremap <Leader>i :set list!<CR>
+
 " Persist visual selection after shift
 vnoremap < <gv
 vnoremap > >gv
 
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
+
+" yank visual selection into clipboard for easy copy/paste
+vnoremap <Leader>y "*y
 
 
 " -------
