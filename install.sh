@@ -3,7 +3,7 @@ dotfiles=$(pwd)
 ###########
 
 # cleanup old setup
-rm ~/.vimrc
+rm -f ~/.vimrc
 rm -rf ~/.vim && mkdir -p ~/.vim && mkdir -p ~/.vim/bundle
 
 # symlink to repo
@@ -22,15 +22,15 @@ vim +PluginInstall +qall
 
 # git setup
 ###########
-rm ~/.gitconfig
+rm -f ~/.gitconfig
 cd ~ && ln -s ${dotfiles}/gitconfig ~/.gitconfig && cd -
 
 # bash setup
 ############
-rm .bash_profile
+rm -f ~/.bash_profile
 cd ~ && ln -s ${dotfiles}/bash_profile ~/.bash_profile && cd -
 
-rm .bashrc
+rm -f ~/.bashrc
 cd ~ && ln -s ${dotfiles}/bashrc  ~/.bashrc && cd -
 
 source ~/.bash_profile
