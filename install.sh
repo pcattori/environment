@@ -2,11 +2,12 @@
 ###########
 
 # cleanup old setup
-rm ~/.vimrc && rm -rf ~/.vim
-mkdir -p ~/.vim/bundle
+rm ~/.vimrc
+rm -rf ~/.vim && mkdir -p ~/.vim && mkdir -p ~/.vim/bundle
 
 # symlink to repo
-ln -s vimrc ~/.vimrc
+cwd=$(pwd)
+cd ~ && ln -s ${cwd}/vimrc ~/.vimrc && cd -
 
 # get Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
