@@ -33,4 +33,7 @@ cd ~ && ln -s ${dotfiles}/bash_profile ~/.bash_profile && cd -
 rm -f ~/.bashrc
 cd ~ && ln -s ${dotfiles}/bashrc  ~/.bashrc && cd -
 
+rm -f ~/.alias
+cd ~ && ln -s ${dotfiles}/alias ~/.alias && cd -
+
 source ~/.bash_profile
