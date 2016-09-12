@@ -23,7 +23,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-abolish'
 
 " Better status line
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Ruby bundler goodies
 Plugin 'tpope/vim-bundler'
@@ -49,6 +50,10 @@ Plugin 'tomtom/tcomment_vim'
 " Manipulate surrounding characters and tags
 Plugin 'tpope/vim-surround'
 
+" Folding
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'nelstrom/vim-markdown-folding'
+
 " Syntax checking
 "Plugin 'scrooloose/syntastic'
 
@@ -58,8 +63,10 @@ Plugin 'tpope/vim-haml'
 Plugin 'lepture/vim-jinja'
 Plugin 'tpope/vim-markdown'
 Plugin 'slim-template/vim-slim'
-
-Plugin 'tmhedberg/SimpylFold'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'cakebaker/scss-syntax.vim'
 
 " Try out these plugins...
 " gundo
@@ -145,7 +152,7 @@ autocmd BufWinEnter * match TrailingWhitespace /\s\+$/
 autocmd ColorScheme * highlight TrailingWhitespace ctermbg=White
 
 " Suggestive line stop
-set colorcolumn=80
+set colorcolumn=81
 autocmd ColorScheme * highlight ColorColumn ctermbg=233
 
 
@@ -162,6 +169,9 @@ colorscheme molokai " solarized, wombat, railscasts, codeschool
 " Folding
 set foldmethod=indent
 set nofoldenable
+
+" Increase clipboard size
+set viminfo='20,<1000,s1000
 
 
 " ------------
@@ -195,6 +205,7 @@ set shiftround
 augroup Tab
   " Syntax of these languages is fussy over tabs & spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType python setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
