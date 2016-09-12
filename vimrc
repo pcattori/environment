@@ -1,4 +1,4 @@
-" .vimrc - Developed on OSX El Capitan (10.11)
+" .vimrc - Developed on macOS El Capitan (10.11)
 " Requires vim >= 7.4
 
 " -------------------------------------------------
