@@ -1,5 +1,5 @@
 [user]
-    email = pcattori@mit.edu
+    email = pcattori@gmail.com
     name = Pedro Cattori
 [color]
     branch = auto
@@ -7,6 +7,7 @@
     interactive = auto
     status = auto
     grep = auto
+    color = auto
 [alias]
     co = checkout
     st = status -sb
