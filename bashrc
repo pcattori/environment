@@ -1,44 +1,20 @@
 #!/bin/bash
 
-############################
-# aliases & export options #
-############################
-
-# Colored ls
-alias ls='ls -G'
-alias ll='ls -Ghla'
-
-alias home='cd ~'
-alias up='cd ..'
-
-# -E for extended regex
-alias esed='sed -E'
+##################
+# export options #
+##################
 
 export EDITOR='vim'
-
-# view man pages with vim
-export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -"
-
 export GREP_OPTIONS='--color=auto'
 
 # Don't store commands prepended with ' ' (space) in history
 export HISTCONTROL=ignorespace
 
-#########################
-# convenience functions #
-#########################
-
-# command-line chrome : try file, then try url
-function chrome {
-    if !( open -a "Google Chrome" $1 2> /dev/null ); then
-        open -a "Google Chrome" "http://$1"
-    fi
-}
-
 ##########
 # Prompt #
 ##########
 
+# color palette
 BLACK='\[\e[0;30m\]'
 RED='\[\e[0;31m\]'
 GREEN='\[\e[0;32m\]'
@@ -63,9 +39,7 @@ export PS1="${LIGHT_RED}➜ ${LIGHT_GREY}"
 # PATH #
 ########
 
-export GOPATH=$HOME/go
-PATH=$PATH:$GOPATH/bin
-
-# Homebrew: /usr/local/bin as primary (and include corresponding sbin)
+# /usr/local/bin as primary (and include corresponding sbin)
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH
+

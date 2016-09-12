@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Colored ls
+alias ls='ls -G'
+alias ll='ls -Ghla'
+
+alias home='cd ~'
+alias up='cd ..'
+
+# -E for extended regex
+alias esed='sed -E'
+

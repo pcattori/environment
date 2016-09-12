@@ -1,3 +1,4 @@
+dotfiles=$(pwd)
 # vim setup
 ###########
 
@@ -6,8 +7,7 @@ rm ~/.vimrc
 rm -rf ~/.vim && mkdir -p ~/.vim && mkdir -p ~/.vim/bundle
 
 # symlink to repo
-cwd=$(pwd)
-cd ~ && ln -s ${cwd}/vimrc ~/.vimrc && cd -
+cd ~ && ln -s ${dotfiles}/vimrc ~/.vimrc && cd -
 
 # get Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -19,3 +19,7 @@ git clone https://github.com/tomasr/molokai.git && \
 
 # install plugins
 vim +PluginInstall +qall
+
+# git setup
+###########
+rm ~/.gitconfig && cd ~ && ln -s ${dotfiles}/gitconfig ~/.gitconfig && cd -
