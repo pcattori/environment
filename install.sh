@@ -22,10 +22,15 @@ vim +PluginInstall +qall
 
 # git setup
 ###########
-rm ~/.gitconfig && cd ~ && ln -s ${dotfiles}/gitconfig ~/.gitconfig && cd -
+rm ~/.gitconfig
+cd ~ && ln -s ${dotfiles}/gitconfig ~/.gitconfig && cd -
 
 # bash setup
 ############
+rm .bash_profile
 cd ~ && ln -s ${dotfiles}/bash_profile ~/.bash_profile && cd -
+
+rm .bashrc
 cd ~ && ln -s ${dotfiles}/bashrc  ~/.bashrc && cd -
+
 source ~/.bash_profile
