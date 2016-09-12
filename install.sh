@@ -3,17 +3,16 @@ dotfiles=$(pwd)
 ###########
 
 # cleanup old setup
-rm -f ~/.vimrc
 rm -rf ~/.vim && mkdir -p ~/.vim && mkdir -p ~/.vim/bundle
 
 # symlink to repo
-cd ~ && ln -s ${dotfiles}/vimrc ~/.vimrc && cd -
+cd ~ && ln -sF ${dotfiles}/vimrc ~/.vimrc > /dev/null && cd -
 
 # get Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim > /dev/null
 
 # get colorscheme
-git clone https://github.com/tomasr/molokai.git && \
+git clone https://github.com/tomasr/molokai.git > /dev/null && \
   mv molokai/colors ~/.vim/colors && \
   rm -rf molokai
 
@@ -22,18 +21,14 @@ vim +PluginInstall +qall
 
 # git setup
 ###########
-rm -f ~/.gitconfig
-cd ~ && ln -s ${dotfiles}/gitconfig ~/.gitconfig && cd -
+cd ~ && ln -sF ${dotfiles}/gitconfig ~/.gitconfig > /dev/null && cd -
 
 # bash setup
 ############
-rm -f ~/.bash_profile
-cd ~ && ln -s ${dotfiles}/bash_profile ~/.bash_profile && cd -
+cd ~ && ln -sF ${dotfiles}/bash_profile ~/.bash_profile > /dev/null && cd -
 
-rm -f ~/.bashrc
-cd ~ && ln -s ${dotfiles}/bashrc  ~/.bashrc && cd -
+cd ~ && ln -sF ${dotfiles}/bashrc  ~/.bashrc > /dev/null && cd -
 
-rm -f ~/.alias
-cd ~ && ln -s ${dotfiles}/alias ~/.alias && cd -
+cd ~ && ln -sF ${dotfiles}/alias ~/.alias > /dev/null && cd -
 
 source ~/.bash_profile
