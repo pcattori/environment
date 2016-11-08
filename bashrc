@@ -43,3 +43,5 @@ export PS1="${LIGHT_RED}➜ ${LIGHT_GREY}"
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH
 
+export WORKON_HOME=~/.virtualenvs
+source virtualenvwrapper.sh

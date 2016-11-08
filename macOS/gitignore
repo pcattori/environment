@@ -9,3 +9,7 @@
 
 # python
 *.pyc
+*.egg
+*.egg-info/
+.eggs/
+venv/

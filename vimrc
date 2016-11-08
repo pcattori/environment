@@ -59,14 +59,15 @@ Plugin 'nelstrom/vim-markdown-folding'
 
 " Language syntax support
 Plugin 'fatih/vim-go'
-Plugin 'tpope/vim-haml'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'lepture/vim-jinja'
-Plugin 'tpope/vim-markdown'
 Plugin 'slim-template/vim-slim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-markdown'
 
 " Try out these plugins...
 " gundo
@@ -196,8 +197,8 @@ set backspace=indent,eol,start
 " tabs and indenting
 " ------------------
 
-" Soft-tab with 2 space default
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+" Soft-tab with 4 space default
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Round to nearest tab multiple
 set shiftround
