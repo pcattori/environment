@@ -3,21 +3,17 @@ dotfiles=$(pwd)
 ###########
 
 # cleanup old setup
-rm -rf ~/.vim && mkdir -p ~/.vim && mkdir -p ~/.vim/bundle
+rm -rf ~/.vim && mkdir -p ~/.vim
 
 # symlink to repo
 cd ~ && ln -sf ${dotfiles}/vimrc ~/.vimrc &> /dev/null && cd -
 
-# get Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim > /dev/null
-
-# get colorscheme
-git clone https://github.com/tomasr/molokai.git &> /dev/null && \
-  mv molokai/colors ~/.vim/colors && \
-  rm -rf molokai
+# get vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # install plugins
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 
 # git setup
 ###########
