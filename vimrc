@@ -1,80 +1,44 @@
-" .vimrc - Developed on macOS El Capitan (10.11)
-" Requires vim >= 7.4
+" .vimrc - Developed on OSX El Capitan (10.11) - requires vim >= 7.4
+set nocompatible " vim = VI iMproved
 
-" -------------------------------------------------
-" | Vundle @ https://github.com/gmarik/Vundle.vim |
-" -------------------------------------------------
-
-" vim = VI iMproved
-set nocompatible
-
-" Required Vundle setup
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage itself
-Plugin 'gmarik/Vundle.vim'
+" Load vim-plug
+" if empty(glob("~/.vim/autoload/plug.vim"))
+"     execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+" endif
 
 " Plugins
 " -------
 
-" Super-charged search, substitution, and abbreviations
-Plugin 'tpope/vim-abolish'
+call plug#begin('~/.vim/plugged')
 
-" Better status line
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" Ruby bundler goodies
-Plugin 'tpope/vim-bundler'
-
-" Character representation in decimal, octal, and hex with 'ga'
-Plugin 'tpope/vim-characterize'
-
-" Git integration (displays branch for Airline)
-Plugin 'tpope/vim-fugitive'
-
-" Sublime-like cursors
-Plugin 'terryma/vim-multiple-cursors'
-
-" Repeat plugin actions via '.'
-Plugin 'tpope/vim-repeat'
-
-" Code completion
-Plugin 'ervandew/supertab'
-
-" Comment manipulation
-Plugin 'tomtom/tcomment_vim'
-
-" Manipulate surrounding characters and tags
-Plugin 'tpope/vim-surround'
-
-" Folding
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'nelstrom/vim-markdown-folding'
-
-" Syntax checking
-"Plugin 'scrooloose/syntastic'
+Plug 'ervandew/supertab' " Code completion
+Plug 'flazz/vim-colorschemes', {'do': 'ln -s ~/.vim/plugged/vim-colorschemes ~/.vim/colors'} " ALL THE COLORS!
+Plug 'terryma/vim-multiple-cursors' " Sublime-like cursors
+Plug 'tpope/vim-characterize' " Character representation in decimal, octal, and hex with 'ga'
+Plug 'tpope/vim-commentary' " Comments
+Plug 'tpope/vim-repeat' " Repeat plugin actions via '.'
+Plug 'tpope/vim-surround' " Manipulate surrounding characters and tags
+Plug 'vim-airline/vim-airline' " Better status line
+Plug 'vim-airline/vim-airline-themes' " color themes for airline
 
 " Language syntax support
-Plugin 'fatih/vim-go'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'lepture/vim-jinja'
-Plugin 'slim-template/vim-slim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-markdown'
+Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
+Plug 'tpope/vim-markdown', {'for': 'markdown'}
 
-" Try out these plugins...
-" gundo
+"Plug 'easymotion/vim-easymotion'
+"Plug 'godlygeek/tabular'
+"Plug 'junegunn/vim-easy-align'
+"Plug 'scrooloose/syntastic' " Syntax checking
+"Plug 'valloric/youcompleteme'
 
-" Required Vundle teardown
-call vundle#end()
-filetype plugin on
+"Plug 'sjl/gundo'
+"Plug 'tmhedberg/SimpylFold'
+"Plug 'tpope/vim-abolish' " Super-charged search, substitution, and abbreviations
+"Plug 'tpope/vim-fugitive' " Git integration (displays branch for Airline)
+
+call plug#end()
 
 " Leader
 " ------
@@ -82,21 +46,15 @@ filetype plugin on
 let mapleader = " "
 nnoremap <space> <nop>
 
-
 " -------------------------------------
 " moving around, searching and patterns
 " -------------------------------------
 
-" Case sensitivity triggered by capital letter
+" Searching
 set ignorecase
-set smartcase
-
-" Search-as-you-type
-set incsearch
-
-" Highlight search
-set hlsearch
-
+set smartcase " Case sensitivity triggered by capital letter
+set incsearch " Search-as-you-type
+set hlsearch " Highlight search
 " Clear search and dismiss highlights
 nnoremap <silent> <backspace> :let @/ = ""<return>
 
@@ -117,7 +75,6 @@ noremap <down>  <nop>
 noremap <up>    <nop>
 noremap <right> <nop>
 
-
 " ---------------
 " displaying text
 " ---------------
@@ -132,18 +89,14 @@ set title titlestring=%F\ %a%r%m
 set number
 autocmd ColorScheme * highlight LineNr ctermfg=grey ctermbg=235
 
-" Buffer cursor from top & bottom
-set scrolloff=5
-
-" Show cursor row
+" Cursor
+set scrolloff=7 " Buffer cursor from top & bottom
+" Show cursor crosshairs
 set cursorline
-
-" Show cursor column
 set cursorcolumn
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
-
 " Invisible character colors
 autocmd ColorScheme * highlight NonText ctermfg=237 ctermbg=None
 autocmd ColorScheme * highlight SpecialKey ctermfg=237 ctermbg=None
@@ -156,7 +109,6 @@ autocmd ColorScheme * highlight TrailingWhitespace ctermbg=White
 set colorcolumn=81
 autocmd ColorScheme * highlight ColorColumn ctermbg=233
 
-
 " ---------------------------------
 " syntax, highlighting and spelling
 " ---------------------------------
@@ -167,17 +119,11 @@ set background=dark
 let g:molokai_original=1
 colorscheme molokai " solarized, wombat, railscasts, codeschool
 
-" Folding
-set foldmethod=indent
-set nofoldenable
-
-" Increase clipboard size
-set viminfo='20,<1000,s1000
-
-
 " ------------
 " editing text
 " ------------
+
+set viminfo='20,<1000,s1000 " Increase clipboard size
 
 " Quick underscore
 inoremap <c-@> _
@@ -190,25 +136,20 @@ nnoremap _ kddpk
 " No comment nextline-continuation
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
-" Fix multiple cursor backspace
+" Fix backspaces
 set backspace=indent,eol,start
 
 " ------------------
 " tabs and indenting
 " ------------------
 
-" Soft-tab with 4 space default
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab " Soft-tab with 4 space default
+set shiftround " Round to nearest tab multiple
 
-" Round to nearest tab multiple
-set shiftround
-
-augroup Tab
-  " Syntax of these languages is fussy over tabs & spaces
+augroup Tab " Syntax of these languages is fussy over tabs & spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
-
 
 " -------
 " mapping
@@ -234,15 +175,12 @@ vnoremap <Leader>s :sort<CR>
 " yank visual selection into clipboard for easy copy/paste
 vnoremap <Leader>y "*y
 
-
 " -------
-" various
+" plugins
 " -------
 
-" Always show Airline status bar
-set laststatus=2
+set laststatus=2 " Always show Airline status bar
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+let g:airline_theme = 'wombat' " Airline color theme
 
-" Airline color theme
-let g:airline_theme = 'wombat'
