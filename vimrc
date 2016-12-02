@@ -31,7 +31,7 @@ Plug 'tpope/vim-markdown', {'for': 'markdown'}
 "Plug 'godlygeek/tabular'
 "Plug 'junegunn/vim-easy-align'
 "Plug 'scrooloose/syntastic' " Syntax checking
-"Plug 'valloric/youcompleteme'
+"Plug 'Valloric/youcompleteme'
 
 "Plug 'sjl/gundo'
 "Plug 'tmhedberg/SimpylFold'
@@ -173,6 +173,7 @@ vnoremap > >gv
 vnoremap <Leader>s :sort<CR>
 
 " yank visual selection into clipboard for easy copy/paste
+" TODO `+` instead of `*`??
 vnoremap <Leader>y "*y
 
 " -------
