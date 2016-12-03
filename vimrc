@@ -13,8 +13,9 @@ set nocompatible " vim = VI iMproved
 call plug#begin('~/.vim/plugged')
 
 Plug 'ervandew/supertab' " Code completion
-Plug 'flazz/vim-colorschemes', {'do': 'ln -s ~/.vim/plugged/vim-colorschemes ~/.vim/colors'} " ALL THE COLORS!
+Plug 'flazz/vim-colorschemes', {'do': 'ln -s ~/.vim/plugged/vim-colorschemes/colors ~/.vim/colors'} " ALL THE COLORS!
 Plug 'terryma/vim-multiple-cursors' " Sublime-like cursors
+Plug 'tpope/vim-abolish' " Case coercion
 Plug 'tpope/vim-characterize' " Character representation in decimal, octal, and hex with 'ga'
 Plug 'tpope/vim-commentary' " Comments
 Plug 'tpope/vim-repeat' " Repeat plugin actions via '.'
@@ -31,7 +32,7 @@ Plug 'tpope/vim-markdown', {'for': 'markdown'}
 "Plug 'godlygeek/tabular'
 "Plug 'junegunn/vim-easy-align'
 "Plug 'scrooloose/syntastic' " Syntax checking
-"Plug 'Valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
 
 "Plug 'sjl/gundo'
 "Plug 'tmhedberg/SimpylFold'
@@ -175,6 +176,9 @@ vnoremap <Leader>s :sort<CR>
 " yank visual selection into clipboard for easy copy/paste
 " TODO `+` instead of `*`??
 vnoremap <Leader>y "*y
+
+"
+nnoremap <Leader>p :set paste!<CR>
 
 " -------
 " plugins
