@@ -1,0 +1,8 @@
+brew "git"
+brew "hub"
+brew "python"
+brew "python3"
+brew "tree"
+brew "vim"
+brew "zplug"
+brew "zsh"
