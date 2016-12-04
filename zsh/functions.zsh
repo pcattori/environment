@@ -35,3 +35,7 @@ function trash {
         fi
     done
 }
+
+function in {
+    (cd ${1} && shift && ${@})
+}
