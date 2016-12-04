@@ -113,10 +113,10 @@ function trash {
 
 if [[ "$(tput colors)" == "256" ]]; then
     fg[red]=$FG[124]
-    fg[purple]=$FG[099]
+    fg[blue]=$FG[033]
 else
     echo 'colorblind'
 fi
 
 # TODO show hostname if connected via ssh
-PROMPT="%(?.%{$fg[purple]%}.%{$fg[red]%})❯%f "
+PROMPT="%(?.%{$fg[blue]%}.%{$fg[red]%})❯%f "
