@@ -1,7 +1,6 @@
 # initialize zplug
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
-export PS1="Z > " # fallback
 
 # let zplug manage itself
 zplug "zplug/zplug"
