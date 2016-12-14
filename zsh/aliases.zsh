@@ -1,6 +1,7 @@
 alias ls='ls -GFh'
 alias ll='ls -GFhl'
-alias la='ls -A'
+alias la='ls -GFhA'
+alias lv='ls -GFh1'
 alias grep='grep --color=auto'
 alias cp='cp -i'
 alias mv='mv -i'
