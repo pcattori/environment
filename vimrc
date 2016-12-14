@@ -136,6 +136,8 @@ nnoremap _ kddpk
 
 " No comment nextline-continuation
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+" Start without highlighting
+autocmd BufNewFile,BufRead * let @/ = ""
 
 " Fix backspaces
 set backspace=indent,eol,start
@@ -174,10 +176,9 @@ vnoremap > >gv
 vnoremap <Leader>s :sort<CR>
 
 " yank visual selection into clipboard for easy copy/paste
-" TODO `+` instead of `*`??
 vnoremap <Leader>y "*y
 
-"
+" toggle paste-mode
 nnoremap <Leader>p :set paste!<CR>
 
 " -------
