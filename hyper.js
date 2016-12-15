@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     fontSize: 24,
-    fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: 'Menlo',
     cursorShape: 'BLOCK',
     padding: '12px 14px',
     bell: false,
