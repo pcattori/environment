@@ -20,3 +20,5 @@ bindkey "^R" history-incremental-pattern-search-backward
 # emacs-style editing on cli
 bindkey -e
 
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH
