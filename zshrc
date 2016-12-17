@@ -11,7 +11,7 @@ zplug "plugins/aws", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/virtualenvwrapper", from:oh-my-zsh
-zplug "zsh-users/zsh-autosuggestions" # fish-style auto-suggestions
+zplug "zsh-users/zsh-autosuggestions", defer:2 # fish-style auto-suggestions
 
 # other
 zplug "lib/spectrum", from:oh-my-zsh # colors
