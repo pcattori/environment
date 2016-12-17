@@ -1,6 +1,9 @@
-# dotfiles for UNIX
-All of my relevant dotfiles for environment customization
+# dotfiles
 
-## Tips
-To avoid version-controlling everything in the `$HOME` directory, symlink dotfiles to the contents of a `dotfiles` cloned git-repo directory.
+## Install
+
+```sh
+$ git clone https://github.com/pcattori/dotfiles # or `hub clone pcattori/dotfiles`
+$ sh dotfiles/install.sh
+```
 
