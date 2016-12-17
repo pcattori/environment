@@ -33,3 +33,8 @@ source ~/.zsh/settings.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/prompt.zsh
+
+# local customization
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
+fi
