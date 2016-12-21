@@ -11,11 +11,11 @@ zplug "plugins/aws", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/virtualenvwrapper", from:oh-my-zsh
-zplug "zsh-users/zsh-autosuggestions" # fish-style auto-suggestions
+zplug "zsh-users/zsh-autosuggestions", defer:2 # fish-style auto-suggestions
 
 # other
 zplug "lib/spectrum", from:oh-my-zsh # colors
-zplug "Valiev/almostontop" # auto `clear`
+#zplug "Valiev/almostontop" # auto `clear`
 zplug "plugins/wd", from:oh-my-zsh # new `jump`
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
@@ -33,3 +33,8 @@ source ~/.zsh/settings.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/prompt.zsh
+
+# local customization
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
+fi

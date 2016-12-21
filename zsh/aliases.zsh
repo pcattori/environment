@@ -8,3 +8,4 @@ alias mv='mv -i'
 alias zshrc="$EDITOR ~/.zshrc"
 alias vimrc="$EDITOR ~/.vimrc"
 alias colors='spectrum_ls'
+

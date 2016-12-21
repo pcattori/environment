@@ -190,3 +190,8 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme = 'wombat' " Airline color theme
 
+" local customization
+let $LOCALFILE=expand("~/.vimrc_local")
+if filereadable($LOCALFILE)
+    source $LOCALFILE
+endif

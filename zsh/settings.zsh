@@ -18,3 +18,13 @@ bindkey "^R" history-incremental-pattern-search-backward
 # emacs-style editing on cli
 bindkey -e
 
+# homebrew
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH
+
+# virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
