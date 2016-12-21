@@ -29,7 +29,7 @@ fi
 
 zplug load
 
+source ~/.zsh/settings.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/prompt.zsh
-source ~/.zsh/settings.zsh
