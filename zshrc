@@ -15,7 +15,7 @@ zplug "zsh-users/zsh-autosuggestions", defer:2 # fish-style auto-suggestions
 
 # other
 zplug "lib/spectrum", from:oh-my-zsh # colors
-zplug "Valiev/almostontop" # auto `clear`
+#zplug "Valiev/almostontop" # auto `clear`
 zplug "plugins/wd", from:oh-my-zsh # new `jump`
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
