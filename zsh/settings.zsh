@@ -18,6 +18,10 @@ bindkey "^R" history-incremental-pattern-search-backward
 # emacs-style editing on cli
 bindkey -e
 
+# edit command with `<ctrl-x><ctrl-e>`
+autoload edit-command-line; zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # homebrew
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH
