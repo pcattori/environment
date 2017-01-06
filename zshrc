@@ -4,7 +4,6 @@ source $ZPLUG_HOME/init.zsh
 
 # let zplug manage itself
 zplug "zplug/zplug"
-zplug update --self
 
 # completion
 zplug "plugins/aws", from:oh-my-zsh
