@@ -3,7 +3,6 @@
 ## Install
 
 ```sh
-$ git clone https://github.com/pcattori/dotfiles # or `hub clone pcattori/dotfiles`
+$ git clone https://github.com/pcattori/dotfiles
 $ ./dotfiles/install
 ```
-
