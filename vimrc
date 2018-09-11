@@ -13,7 +13,6 @@ set nocompatible " vim = VI iMproved
 call plug#begin('~/.vim/plugged')
 
 Plug 'ervandew/supertab' " Code completion
-Plug 'flazz/vim-colorschemes', {'do': 'ln -s ~/.vim/plugged/vim-colorschemes/colors ~/.vim/colors'} " ALL THE COLORS!
 Plug 'terryma/vim-multiple-cursors' " Sublime-like cursors
 Plug 'tpope/vim-abolish' " Case coercion
 Plug 'tpope/vim-characterize' " Character representation in decimal, octal, and hex with 'ga'
@@ -88,37 +87,20 @@ set title titlestring=%F\ %a%r%m
 
 " Number column
 set number
-autocmd ColorScheme * highlight LineNr ctermfg=grey ctermbg=235
 
 " Cursor
 set scrolloff=7 " Buffer cursor from top & bottom
 " Show cursor crosshairs
 set cursorline
-set cursorcolumn
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
-" Invisible character colors
-autocmd ColorScheme * highlight NonText ctermfg=237 ctermbg=None
-autocmd ColorScheme * highlight SpecialKey ctermfg=237 ctermbg=None
-
-" Show trailing whitespace
-autocmd BufWinEnter * match TrailingWhitespace /\s\+$/
-autocmd ColorScheme * highlight TrailingWhitespace ctermbg=White
-
-" Suggestive line stop
-set colorcolumn=81
-autocmd ColorScheme * highlight ColorColumn ctermbg=233
 
 " ---------------------------------
 " syntax, highlighting and spelling
 " ---------------------------------
 
-" Colorscheme/theme
 syntax enable
-set background=dark
-let g:molokai_original=1
-colorscheme molokai " solarized, wombat, railscasts, codeschool
 
 " ------------
 " editing text
