@@ -1,6 +1,0 @@
-alias ls='ls -GFh'
-alias lal='ls -GFhAl'
-alias lv='ls -1'
-alias grep='grep --color=auto'
-alias cp='cp -i'
-alias mv='mv -i'

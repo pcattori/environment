@@ -1,3 +1,7 @@
+###########
+# plugins #
+###########
+
 # initialize zplug
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -25,11 +29,51 @@ fi
 
 zplug load
 
-source ~/.zsh/settings.zsh
-source ~/.zsh/aliases.zsh
-source ~/.zsh/prompt.zsh
+##########
+# prompt #
+##########
 
-# local customization
-if [ -f ~/.zshrc_local ]; then
-    source ~/.zshrc_local
-fi
+PROMPT="❯ "
+
+###########
+# aliases #
+###########
+
+alias ls='ls -GFh'
+alias lal='ls -GFhAl'
+alias lv='ls -1'
+alias grep='grep --color=auto'
+alias cp='cp -i'
+alias mv='mv -i'
+
+############
+# settings #
+############
+
+export EDITOR=vim
+
+export HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# TODO maybe use default logging, but custom up-arrow searching?
+# bind '"\e[A": history-search-backward'
+# bind '"\e[B": history-search-forward'
+setopt HIST_IGNORE_ALL_DUPS
+
+# tab menu traversal
+zstyle ':completion:*:*:*:*:*' menu select
+bindkey '^[[Z' reverse-menu-complete
+
+bindkey "^R" history-incremental-pattern-search-backward
+
+# emacs-style editing on cli
+bindkey -e
+
+# edit command with `<ctrl-x><ctrl-e>`
+autoload edit-command-line; zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
+# homebrew
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH
