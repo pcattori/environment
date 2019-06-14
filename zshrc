@@ -40,11 +40,10 @@ PROMPT="❯ "
 ###########
 
 alias ls='ls -GFh'
-alias lal='ls -GFhAl'
-alias lv='ls -1'
 alias grep='grep --color=auto'
 alias cp='cp -i'
 alias mv='mv -i'
+# TODO(pcattori) trash?
 
 ############
 # settings #
@@ -77,3 +76,10 @@ bindkey "^X^E" edit-command-line
 # homebrew
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH
+
+# load all files from ~/.zshrc.d directory
+if [ -d $HOME/.zshrc.d ]; then
+  for file in $HOME/.zshrc.d/*.zsh; do
+    source $file
+  done
+fi
