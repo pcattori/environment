@@ -10,9 +10,7 @@ source $ZPLUG_HOME/init.zsh
 zplug "zplug/zplug"
 
 # completion
-zplug "plugins/aws", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/pip", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions", defer:2 # fish-style auto-suggestions
 
 # other
