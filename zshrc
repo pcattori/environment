@@ -41,7 +41,6 @@ alias ls='ls -GFh'
 alias grep='grep --color=auto'
 alias cp='cp -i'
 alias mv='mv -i'
-# TODO(pcattori) trash?
 
 ############
 # settings #
