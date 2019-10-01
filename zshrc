@@ -12,6 +12,7 @@ zplug "zplug/zplug"
 # completion
 zplug "plugins/git", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions", defer:2 # fish-style auto-suggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=238'
 
 # other
 zplug "plugins/wd", from:oh-my-zsh # new `jump`
@@ -69,10 +70,6 @@ bindkey -e
 # edit command with `<ctrl-x><ctrl-e>`
 autoload edit-command-line; zle -N edit-command-line
 bindkey "^X^E" edit-command-line
-
-# homebrew
-PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH
 
 # load all files from ~/.zshrc.d directory
 if [ -d $HOME/.zshrc.d ]; then
