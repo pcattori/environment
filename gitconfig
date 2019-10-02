@@ -25,3 +25,5 @@
     default = simple
 [hub]
     protocol = https
+[credential]
+    helper = store

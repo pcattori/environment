@@ -3,7 +3,7 @@
 ###########
 
 # initialize zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
 
 # let zplug manage itself
@@ -12,7 +12,7 @@ zplug "zplug/zplug"
 # completion
 zplug "plugins/git", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions", defer:2 # fish-style auto-suggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=238'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 
 # other
 zplug "plugins/wd", from:oh-my-zsh # new `jump`
@@ -38,7 +38,7 @@ PROMPT="❯ "
 # aliases #
 ###########
 
-alias ls='ls -GFh'
+alias ls='ls -GFh --color=auto'
 alias grep='grep --color=auto'
 alias cp='cp -i'
 alias mv='mv -i'
