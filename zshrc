@@ -3,7 +3,7 @@
 ###########
 
 # initialize zplug
-export ZPLUG_HOME=~/.zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 # let zplug manage itself
@@ -38,7 +38,6 @@ PROMPT="❯ "
 # aliases #
 ###########
 
-alias ls='ls -GFh --color=auto'
 alias grep='grep --color=auto'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -76,4 +75,22 @@ if [ -d $HOME/.zshrc.d ]; then
   for file in $HOME/.zshrc.d/*.zsh; do
     source $file
   done
+fi
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  if [ -d $HOME/.zshrc.d/linux ]; then
+    for file in $HOME/.zshrc.d/linxu/*.zsh; do
+      source $file
+    done
+  fi
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  # MacOS
+  if [ -d $HOME/.zshrc.d/macos ]; then
+    for file in $HOME/.zshrc.d/macos/*.zsh; do
+      source $file
+    done
+  fi
+else
+  # Unknown.
+  echo "Unrecognized OS: ${OSTYPE}"
 fi
