@@ -79,7 +79,7 @@ fi
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   if [ -d $HOME/.zshrc.d/linux ]; then
-    for file in $HOME/.zshrc.d/linxu/*.zsh; do
+    for file in $HOME/.zshrc.d/linux/*.zsh; do
       source $file
     done
   fi
