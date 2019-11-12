@@ -41,7 +41,12 @@ zplug load
 # prompt #
 ##########
 
-PROMPT="❯ "
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    # show host (%m) for ssh sessions
+    PROMPT="ssh@%m ❯ "
+else
+    PROMPT="❯ "
+fi
 
 ###########
 # aliases #
@@ -103,3 +108,6 @@ else
   # Unknown.
   echo "Unrecognized OS: ${OSTYPE}"
 fi
+
+# Created by `userpath` on 2019-11-12 16:43:45
+export PATH="$PATH:/home/pedro.cattori/.local/bin"
