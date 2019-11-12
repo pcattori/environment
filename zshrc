@@ -3,7 +3,16 @@
 ###########
 
 # initialize zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # installed via https://github.com/zplug/zplug#the-best-way
+  export ZPLUG_HOME=$HOME/.zplug
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  # installed via `brew install zplug`
+  export ZPLUG_HOME=/usr/local/opt/zplug
+else
+  # Unknown.
+  echo "Unrecognized OS: ${OSTYPE}"
+fi
 source $ZPLUG_HOME/init.zsh
 
 # let zplug manage itself
