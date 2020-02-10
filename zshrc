@@ -3,7 +3,16 @@
 ###########
 
 # initialize zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # installed via https://github.com/zplug/zplug#the-best-way
+  export ZPLUG_HOME=$HOME/.zplug
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  # installed via `brew install zplug`
+  export ZPLUG_HOME=/usr/local/opt/zplug
+else
+  # Unknown.
+  echo "Unrecognized OS: ${OSTYPE}"
+fi
 source $ZPLUG_HOME/init.zsh
 
 # let zplug manage itself
@@ -32,7 +41,12 @@ zplug load
 # prompt #
 ##########
 
-PROMPT="❯ "
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    # show host (%m) for ssh sessions
+    PROMPT="ssh@%m ❯ "
+else
+    PROMPT="❯ "
+fi
 
 ###########
 # aliases #
@@ -79,7 +93,7 @@ fi
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   if [ -d $HOME/.zshrc.d/linux ]; then
-    for file in $HOME/.zshrc.d/linxu/*.zsh; do
+    for file in $HOME/.zshrc.d/linux/*.zsh; do
       source $file
     done
   fi
@@ -94,3 +108,6 @@ else
   # Unknown.
   echo "Unrecognized OS: ${OSTYPE}"
 fi
+
+# Created by `userpath` on 2019-11-12 16:43:45
+export PATH="$PATH:/home/pedro.cattori/.local/bin"
