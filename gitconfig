@@ -15,6 +15,7 @@
     br = branch
     unstage = reset HEAD
     untrack = rm --cached
+    lg = log --graph --oneline
 [core]
     editor = vim
     excludesfile = ~/.gitignore
