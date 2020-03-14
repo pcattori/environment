@@ -5,3 +5,6 @@
 [submodule "dependencies/zplug"]
 	path = dependencies/zplug
 	url = https://github.com/zplug/zplug
+[submodule "dependencies/fzf"]
+	path = dependencies/fzf
+	url = https://github.com/junegunn/fzf
