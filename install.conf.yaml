@@ -11,6 +11,7 @@
     ~/.dotfiles: ''
     ~/.fzf: dependencies/fzf
     ~/.gitconfig:
+    ~/.pyenv: dependencies/pyenv
     ~/.vimrc:
     ~/.zplug: dependencies/zplug
     ~/.zshrc:

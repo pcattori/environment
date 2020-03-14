@@ -8,3 +8,6 @@
 [submodule "dependencies/fzf"]
 	path = dependencies/fzf
 	url = https://github.com/junegunn/fzf
+[submodule "dependencies/pyenv"]
+	path = dependencies/pyenv
+	url = https://github.com/pyenv/pyenv
