@@ -10,5 +10,6 @@
     ~/.dotfiles: ''
     ~/.gitconfig:
     ~/.vimrc:
+    ~/.zplug: dependencies/zplug
     ~/.zshrc:
     ~/.zsh:
