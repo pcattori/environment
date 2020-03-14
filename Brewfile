@@ -1,6 +1,5 @@
 tap "homebrew/core"
 
-brew "bat"
 brew "hub"
 brew "tldr"
 brew "tree"
