@@ -31,15 +31,15 @@ if [ -d $HOME/.zshrc.d ]; then
 fi
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  if [ -d $HOME/.zshrc.d/linux ]; then
-    for file in $HOME/.zshrc.d/linux/*.zsh; do
+  if [ -d $HOME/.zsh/linux ]; then
+    for file in $HOME/.zsh/linux/*.zsh; do
       source $file
     done
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # MacOS
-  if [ -d $HOME/.zshrc.d/macos ]; then
-    for file in $HOME/.zshrc.d/macos/*.zsh; do
+  if [ -d $HOME/.zsh/macos ]; then
+    for file in $HOME/.zsh/macos/*.zsh; do
       source $file
     done
   fi
