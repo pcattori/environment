@@ -7,6 +7,7 @@
   - '~'
 
 - link:
+    ~/.bin:
     ~/.dotfiles: ''
     ~/.fzf: dependencies/fzf
     ~/.gitconfig:

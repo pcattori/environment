@@ -2,6 +2,8 @@ source ~/.zsh/zplug.zsh
 source ~/.zsh/prompt.zsh
 source ~/.zsh/aliases.zsh
 
+export PATH=~/.bin:$PATH
+
 export EDITOR=vim
 
 export HISTFILE=~/.zsh_history
