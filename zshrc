@@ -24,25 +24,19 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
 # load all files from ~/.zshrc.d directory
-if [ -d $HOME/.zshrc.d ]; then
-  for file in $HOME/.zshrc.d/tools/*.zsh; do
-    source $file
-  done
-fi
+for file in $HOME/.zsh/tools/*.zsh; do
+  source $file
+done
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  if [ -d $HOME/.zsh/linux ]; then
-    for file in $HOME/.zsh/linux/*.zsh; do
-      source $file
-    done
-  fi
+  for file in $HOME/.zsh/linux/*.zsh; do
+    source $file
+  done
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # MacOS
-  if [ -d $HOME/.zsh/macos ]; then
-    for file in $HOME/.zsh/macos/*.zsh; do
-      source $file
-    done
-  fi
+  for file in $HOME/.zsh/macos/*.zsh; do
+    source $file
+  done
 else
   # Unknown.
   echo "Unrecognized OS: ${OSTYPE}"

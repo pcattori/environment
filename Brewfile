@@ -1,7 +1,6 @@
 tap "homebrew/core"
 
 brew "bat"
-brew "fzf"
 brew "hub"
 brew "pyenv"
 brew "tldr"
