@@ -2,9 +2,6 @@
 
 FZF_HOME=~/.fzf
 
-# Generate fzf binary
-${FZF_HOME}/install --bin &> /dev/null
-
 export PATH=${FZF_HOME}/bin:$PATH
 
 # Auto-completion
