@@ -27,17 +27,3 @@ bindkey "^X^E" edit-command-line
 for file in $HOME/.zsh/tools/*.zsh; do
   source $file
 done
-
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  for file in $HOME/.zsh/linux/*.zsh; do
-    source $file
-  done
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  # MacOS
-  for file in $HOME/.zsh/macos/*.zsh; do
-    source $file
-  done
-else
-  # Unknown.
-  echo "Unrecognized OS: ${OSTYPE}"
-fi
