@@ -1,64 +1,6 @@
-###########
-# plugins #
-###########
-
-# initialize zplug
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  # installed via https://github.com/zplug/zplug#the-best-way
-  export ZPLUG_HOME=$HOME/.zplug
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  # installed via `brew install zplug`
-  export ZPLUG_HOME=/usr/local/opt/zplug
-else
-  # Unknown.
-  echo "Unrecognized OS: ${OSTYPE}"
-fi
-source $ZPLUG_HOME/init.zsh
-
-# let zplug manage itself
-zplug "zplug/zplug"
-
-# completion
-zplug "plugins/git", from:oh-my-zsh
-zplug "zsh-users/zsh-autosuggestions", defer:2 # fish-style auto-suggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
-
-# other
-zplug "plugins/wd", from:oh-my-zsh # new `jump`
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-zplug load
-
-##########
-# prompt #
-##########
-
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    # show host (%m) for ssh sessions
-    PROMPT="ssh@%m ❯ "
-else
-    PROMPT="❯ "
-fi
-
-###########
-# aliases #
-###########
-
-alias grep='grep --color=auto'
-alias cp='cp -i'
-alias mv='mv -i'
-
-############
-# settings #
-############
+source ~/.zsh/zplug.zsh
+source ~/.zsh/prompt.zsh
+source ~/.zsh/aliases.zsh
 
 export EDITOR=vim
 
@@ -66,9 +8,6 @@ export HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-# TODO maybe use default logging, but custom up-arrow searching?
-# bind '"\e[A": history-search-backward'
-# bind '"\e[B": history-search-forward'
 setopt HIST_IGNORE_ALL_DUPS
 
 # tab menu traversal
@@ -86,7 +25,7 @@ bindkey "^X^E" edit-command-line
 
 # load all files from ~/.zshrc.d directory
 if [ -d $HOME/.zshrc.d ]; then
-  for file in $HOME/.zshrc.d/*.zsh; do
+  for file in $HOME/.zshrc.d/tools/*.zsh; do
     source $file
   done
 fi
@@ -108,6 +47,3 @@ else
   # Unknown.
   echo "Unrecognized OS: ${OSTYPE}"
 fi
-
-# Created by `userpath` on 2019-11-12 16:43:45
-export PATH="$PATH:/home/pedro.cattori/.local/bin"
