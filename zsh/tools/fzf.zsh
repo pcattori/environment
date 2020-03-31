@@ -11,3 +11,5 @@ export PATH=${FZF_HOME}/bin:$PATH
 source ${FZF_HOME}/shell/key-bindings.zsh
 
 export FZF_DEFAULT_OPTS="--extended"
+
+alias fzp="fzf -m --preview 'bat --color=always --style=numbers {}'"
