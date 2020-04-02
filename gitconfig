@@ -15,7 +15,10 @@
     br = branch
     unstage = reset HEAD
     untrack = rm --cached
-    lg = log --graph --oneline
+    l = log --graph --oneline --decorate
+    ll = log --graph --oneline --decorate --branches --tags
+    lll = log --graph --oneline --decorate --all
+    branch-tree = log --graph --simplify-by-decoration --pretty=format:'%d' --all
 [core]
     editor = vim
     excludesfile = ~/.gitignore
