@@ -10,7 +10,7 @@
     color = auto
 [alias]
     co = checkout
-    st = status -sb
+    st = status --short --branch
     ci = commit
     br = branch
     unstage = reset HEAD
