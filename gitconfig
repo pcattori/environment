@@ -24,7 +24,5 @@
     smudge = git-media-smudge %f
 [push]
     default = simple
-[hub]
-    protocol = https
 [credential]
     helper = store
