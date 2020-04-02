@@ -24,5 +24,3 @@
     smudge = git-media-smudge %f
 [push]
     default = simple
-[credential]
-    helper = store
