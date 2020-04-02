@@ -15,6 +15,7 @@
     ~/.fzf: dependencies/fzf
     ~/.gitconfig:
     ~/.pyenv: dependencies/pyenv
+    ~/.ssh/config: ssh/config
     ~/.vim/autoload/plug.vim: dependencies/vim-plug/plug.vim
     ~/.vimrc:
     ~/.zplug: dependencies/zplug
