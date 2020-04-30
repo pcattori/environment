@@ -11,3 +11,6 @@
 [submodule "dependencies/pyenv"]
 	path = dependencies/pyenv
 	url = https://github.com/pyenv/pyenv
+[submodule "dependencies/vim-plug"]
+	path = dependencies/vim-plug
+	url = https://github.com/junegunn/vim-plug.git

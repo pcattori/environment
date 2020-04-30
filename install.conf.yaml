@@ -11,10 +11,11 @@
     ~/.fzf: dependencies/fzf
     ~/.gitconfig:
     ~/.pyenv: dependencies/pyenv
+    ~/.vim/autoload/plug.vim: vim-plug/plug.vim
     ~/.vimrc:
     ~/.zplug: dependencies/zplug
-    ~/.zshrc:
     ~/.zsh:
+    ~/.zshrc:
 
 - shell:
     - git submodule sync --recursive
