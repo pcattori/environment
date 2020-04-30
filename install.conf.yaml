@@ -1,20 +1,20 @@
 - defaults:
-  link:
-    create: true
-    relink: true
+    link:
+      create: true
+      relink: true
 
 - clean: ["~"]
 
 - link:
-  ~/.bin:
-  ~/.dotfiles: ""
-  ~/.fzf: dependencies/fzf
-  ~/.gitconfig:
-  ~/.pyenv: dependencies/pyenv
-  ~/.vimrc:
-  ~/.zplug: dependencies/zplug
-  ~/.zshrc:
-  ~/.zsh:
+    ~/.bin:
+    ~/.dotfiles: ""
+    ~/.fzf: dependencies/fzf
+    ~/.gitconfig:
+    ~/.pyenv: dependencies/pyenv
+    ~/.vimrc:
+    ~/.zplug: dependencies/zplug
+    ~/.zshrc:
+    ~/.zsh:
 
 - shell:
     - git submodule sync --recursive
