@@ -1,5 +1,6 @@
 tap "homebrew/core"
 
+brew "fd"
 brew "ripgrep"
 brew "tldr"
 brew "tree"
