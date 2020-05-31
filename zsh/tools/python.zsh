@@ -16,7 +16,7 @@ export PATH=$HOME/.poetry/bin:$PATH
 
 alias prp="poetry run python"
 
-# invoke
-########
+# nox
+#####
 
-alias pri="poetry run invoke"
+alias prn="poetry run nox"
