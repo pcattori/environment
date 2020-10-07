@@ -27,3 +27,5 @@
     smudge = git-media-smudge %f
 [push]
     default = simple
+[init]
+	defaultBranch = main
