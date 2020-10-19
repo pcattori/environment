@@ -13,12 +13,14 @@
     st = status --short --branch
     ci = commit
     br = branch
+    rbi = rebase --interactive
+    rba = rebase --abort
+    rbc = rebase --continue
     unstage = reset HEAD
     untrack = rm --cached
     l = log --graph --oneline --decorate
     ll = log --graph --oneline --decorate --branches --tags
     lll = log --graph --oneline --decorate --all
-    branch-tree = log --graph --simplify-by-decoration --pretty=format:'%d' --all
 [core]
     editor = vim
     excludesfile = ~/.gitignore
