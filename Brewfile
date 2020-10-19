@@ -1,6 +1,9 @@
 tap "homebrew/core"
 
+brew "adr-tools"
 brew "fd"
+brew "git"
+brew "gh"
 brew "ripgrep"
 brew "tldr"
 brew "tree"
