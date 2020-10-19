@@ -19,6 +19,7 @@
     ~/.ssh/config: ssh/config
     ~/.vim/autoload/plug.vim: dependencies/vim-plug/plug.vim
     ~/.vimrc:
+    "~/Library/Application Support/Code/User/settings.json": vscode/settings.json
     ~/.zplug: dependencies/zplug
     ~/.zsh:
     ~/.zshrc:
