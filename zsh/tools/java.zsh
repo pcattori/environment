@@ -1,5 +1,5 @@
 # jabba
-[ -s "/Users/pedro/.jabba/jabba.sh" ] && source "/Users/pedro/.jabba/jabba.sh"
+[ -s "~/.jabba/jabba.sh" ] && source "~/.jabba/jabba.sh"
 
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
