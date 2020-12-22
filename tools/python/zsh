@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # pyenv
 #######
 
@@ -12,9 +14,4 @@ fi
 ########
 
 # https://poetry.eustace.io/docs/#installation
-alias prp="poetry run python"
-
-# nox
-#####
-
-alias prn="poetry run nox"
+alias poe="poetry run"
