@@ -1,2 +1,4 @@
+#!/usr/bin/env zsh
+
 PATH=~/.brew/bin:$PATH
 export PATH
