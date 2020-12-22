@@ -28,5 +28,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "gitlens.mode.active": "zen",
+  "workbench.activityBar.visible": true
 }
