@@ -2,15 +2,15 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "dependencies/zplug"]
-	path = dependencies/zplug
-	url = https://github.com/zplug/zplug
 [submodule "dependencies/fzf"]
 	path = dependencies/fzf
-	url = https://github.com/junegunn/fzf
+	url = git@github.com:junegunn/fzf.git
 [submodule "dependencies/pyenv"]
 	path = dependencies/pyenv
-	url = https://github.com/pyenv/pyenv
+	url = git@github.com:pyenv/pyenv.git
 [submodule "dependencies/vim-plug"]
 	path = dependencies/vim-plug
-	url = https://github.com/junegunn/vim-plug.git
+	url = git@github.com:junegunn/vim-plug.git
+[submodule "dependencies/zplug"]
+	path = dependencies/zplug
+	url = git@github.com:zplug/zplug.git
