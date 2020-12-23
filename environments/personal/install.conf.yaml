@@ -10,19 +10,19 @@
     - git submodule update --init --recursive
 
 - link:
-    ~/.bin:
+    ~/.bin/bat: tools/bat
+    ~/.bin/code: tools/vscode/code
     ~/.dotfiles: ""
     ~/.fzf: dependencies/fzf
-    ~/.gitconfig:
-    ~/.psqlrc:
+    ~/.gitconfig: tools/git/gitconfig
     ~/.pyenv: dependencies/pyenv
-    ~/.ssh/config: ssh/config
+    ~/.ssh/config: tools/ssh/config
+    ~/.tools: tools
     ~/.vim/autoload/plug.vim: dependencies/vim-plug/plug.vim
-    ~/.vimrc:
-    "~/Library/Application Support/Code/User/settings.json": vscode/settings.json
+    ~/.vimrc: tools/vim/vimrc
+    "~/Library/Application Support/Code/User/settings.json": tools/vscode/settings.json
     ~/.zplug: dependencies/zplug
-    ~/.zsh:
-    ~/.zshrc:
+    ~/.zshrc: environments/personal/zshrc
 
 - shell:
     - dependencies/fzf/install --key-bindings --completion --no-update-rc
