@@ -1,0 +1,35 @@
+[user]
+    email = pcattori@gmail.com
+    name = Pedro Cattori
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    grep = auto
+    color = auto
+[alias]
+    co = checkout
+    st = status --short --branch
+    ci = commit
+    br = branch
+    rbi = rebase --interactive
+    rba = rebase --abort
+    rbc = rebase --continue
+    unstage = reset HEAD
+    untrack = rm --cached
+    l = log --graph --oneline --decorate
+    ll = log --graph --oneline --decorate --branches --tags
+    lll = log --graph --oneline --decorate --all
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+[filter "media"]
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
+[push]
+    default = simple
+[init]
+	defaultBranch = main
+[pull]
+	ff = only
