@@ -7,7 +7,7 @@ Goals:
 - **Simple installation**
   - Installation should be as idempotent as possible
 - **Feature-first**
-  - Organize dotfiles by feature (e.g. "my preferred Python tooling"), not by file type.
+  - Organize dotfiles by feature (e.g. "my preferred Python tooling"), not by file type
 - **Profiles**
   - Manage multiple configurations side-by-side without conflicts
 
