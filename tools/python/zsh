@@ -13,5 +13,6 @@ fi
 # poetry
 ########
 
+export PATH="$HOME/.poetry/bin:$PATH"
 # https://poetry.eustace.io/docs/#installation
 alias poe="poetry run"
