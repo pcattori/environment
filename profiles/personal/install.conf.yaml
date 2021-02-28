@@ -11,6 +11,7 @@
 
 - link:
     ~/.bin/bat: tools/bat
+    ~/.czrc: tools/commitizen/czrc
     ~/.dotfiles: ""
     ~/.fzf: dependencies/fzf
     ~/.gitconfig: tools/git/gitconfig
