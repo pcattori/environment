@@ -15,6 +15,7 @@
     ~/.dotfiles: ""
     ~/.fzf: dependencies/fzf
     ~/.gitconfig: tools/git/gitconfig
+    ~/.jenv: dependencies/jenv
     ~/.pyenv: dependencies/pyenv
     ~/.ssh/config: tools/ssh/config
     ~/.tools: tools
